@@ -65,7 +65,7 @@ $classes = [
     <div class="hero-image__content container">
         <div class="hero-image__inner">
 
-            <?php if (!empty($hero['title'])) : ?>
+            <?php if (false) : // Titel wird im Seitenüberschriften-Block angezeigt
             <h1 class="hero-image__title">
                 <?php echo esc_html($hero['title']); ?>
             </h1>
