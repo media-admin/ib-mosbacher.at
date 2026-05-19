@@ -78,7 +78,7 @@ function customtheme_enqueue_assets(): void {
         );
 
         wp_enqueue_script(
-            'custom-theme-script',
+            'ib-mosbacher-script',
             VITE_DEV_SERVER_URL . '/src/js/main.js',
             [ 'vite-client' ],
             null,
@@ -98,7 +98,7 @@ function customtheme_enqueue_assets(): void {
         $css_file = $dist . '/css/style.css';
         if ( file_exists( $css_file ) ) {
             wp_enqueue_style(
-                'custom-theme-style',
+                'ib-mosbacher-style',
                 $dist_uri . '/css/style.css',
                 [],
                 filemtime( $css_file )
@@ -108,7 +108,7 @@ function customtheme_enqueue_assets(): void {
         // JS – via Manifest (mit Hash im Dateinamen)
         if ( ! empty( $js_entry['file'] ) ) {
             wp_enqueue_script(
-                'custom-theme-script',
+                'ib-mosbacher-script',
                 VITE_DIST_URI . '/' . $js_entry['file'],
                 [],
                 CUSTOM_THEME_VERSION,
@@ -117,7 +117,7 @@ function customtheme_enqueue_assets(): void {
         } elseif ( file_exists( $dist . '/js/main.js' ) ) {
             // Fallback ohne Manifest
             wp_enqueue_script(
-                'custom-theme-script',
+                'ib-mosbacher-script',
                 $dist_uri . '/js/main.js',
                 [],
                 filemtime( $dist . '/js/main.js' ),
@@ -134,7 +134,7 @@ add_action( 'wp_head', 'customtheme_output_js_config', 1 );
 function customtheme_output_js_config(): void {
     $config = [
         'ajaxUrl'          => admin_url( 'admin-ajax.php' ),
-        'nonce'            => wp_create_nonce( 'custom-theme-nonce' ),
+        'nonce'            => wp_create_nonce( 'ib-mosbacher-nonce' ),
         'searchNonce'      => wp_create_nonce( 'agency_search_nonce' ),
         'loadMoreNonce'    => wp_create_nonce( 'agency_load_more_nonce' ),
         'filtersNonce'     => wp_create_nonce( 'ajax_filters_nonce' ),
@@ -144,7 +144,7 @@ function customtheme_output_js_config(): void {
         'isDebug'          => defined( 'WP_DEBUG' ) && WP_DEBUG,
         'isDev'            => customtheme_vite_is_dev(),
     ];
-    echo '<script id="custom-theme-config">window.customTheme = '
+    echo '<script id="ib-mosbacher-config">window.ibMosbacher = '
         . wp_json_encode( $config )
         . ';</script>' . "\n";
 }
@@ -154,7 +154,7 @@ function customtheme_output_js_config(): void {
 add_filter( 'script_loader_tag', 'customtheme_add_module_type', 10, 3 );
 
 function customtheme_add_module_type( string $tag, string $handle, string $src ): string {
-    $module_handles = [ 'vite-client', 'custom-theme-script' ];
+    $module_handles = [ 'vite-client', 'ib-mosbacher-script' ];
 
     if ( ! in_array( $handle, $module_handles, true ) ) {
         return $tag;

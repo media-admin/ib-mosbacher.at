@@ -63,7 +63,7 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
  * Custom Add to Cart button text
  */
 add_filter('woocommerce_product_single_add_to_cart_text', function($text) {
-    return __('In den Warenkorb', 'custom-theme');
+    return __('In den Warenkorb', 'ib-mosbacher');
 });
 add_filter('woocommerce_product_add_to_cart_text', function($text, $product) {
     if (!$product || !is_a($product, 'WC_Product')) {
@@ -71,7 +71,7 @@ add_filter('woocommerce_product_add_to_cart_text', function($text, $product) {
     }
     
     if ($product->is_type('simple')) {
-        return __('Kaufen', 'custom-theme');
+        return __('Kaufen', 'ib-mosbacher');
     }
     
     return $text;
@@ -141,7 +141,7 @@ add_action( 'woocommerce_after_shop_loop', function () {
 
     if ( $wp_query->max_num_pages <= 1 ) return;
 
-    echo '<nav class="woocommerce-pagination" aria-label="' . esc_attr__( 'Seitennavigation', 'custom-theme' ) . '">';
+    echo '<nav class="woocommerce-pagination" aria-label="' . esc_attr__( 'Seitennavigation', 'ib-mosbacher' ) . '">';
 
     echo paginate_links( [
         'base'      => esc_url_raw( str_replace( 999999999, '%#%', get_pagenum_link( 999999999, false ) ) ),
@@ -150,8 +150,8 @@ add_action( 'woocommerce_after_shop_loop', function () {
         'current'   => max( 1, get_query_var( 'paged' ) ),
         'total'     => $wp_query->max_num_pages,
         // ✅ WCAG 2.4.4: Screenreader-Text für Pfeil-Links
-        'prev_text' => '<span aria-hidden="true">&larr;</span><span class="screen-reader-text">' . __( 'Vorherige Seite', 'custom-theme' ) . '</span>',
-        'next_text' => '<span aria-hidden="true">&rarr;</span><span class="screen-reader-text">' . __( 'Nächste Seite', 'custom-theme' ) . '</span>',
+        'prev_text' => '<span aria-hidden="true">&larr;</span><span class="screen-reader-text">' . __( 'Vorherige Seite', 'ib-mosbacher' ) . '</span>',
+        'next_text' => '<span aria-hidden="true">&rarr;</span><span class="screen-reader-text">' . __( 'Nächste Seite', 'ib-mosbacher' ) . '</span>',
         'type'      => 'list',
         'end_size'  => 3,
         'mid_size'  => 3,

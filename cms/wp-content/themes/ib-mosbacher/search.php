@@ -2,7 +2,7 @@
 /**
  * Search Results Template
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 get_header();
@@ -22,18 +22,18 @@ $found_posts  = (int) $wp_query->found_posts;
         <?php if ( $search_query ) : ?>
         <h1 class="search-header__title">
             <?php printf(
-                esc_html__( 'Suchergebnisse für: „%s"', 'custom-theme' ),
+                esc_html__( 'Suchergebnisse für: „%s"', 'ib-mosbacher' ),
                 '<span class="search-header__term">' . esc_html( $search_query ) . '</span>'
             ); ?>
         </h1>
         <?php else : ?>
-        <h1 class="search-header__title"><?php esc_html_e( 'Suchergebnisse', 'custom-theme' ); ?></h1>
+        <h1 class="search-header__title"><?php esc_html_e( 'Suchergebnisse', 'ib-mosbacher' ); ?></h1>
         <?php endif; ?>
 
         <?php if ( $found_posts > 0 ) : ?>
         <p class="search-header__count">
             <?php printf(
-                esc_html( _n( '%s Ergebnis', '%s Ergebnisse', $found_posts, 'custom-theme' ) ),
+                esc_html( _n( '%s Ergebnis', '%s Ergebnisse', $found_posts, 'ib-mosbacher' ) ),
                 number_format_i18n( $found_posts )
             ); ?>
         </p>
@@ -107,7 +107,7 @@ $found_posts  = (int) $wp_query->found_posts;
                     <?php endif; endif; ?>
 
                     <a class="search-result__link" href="<?php the_permalink(); ?>">
-                        <?php esc_html_e( 'Mehr erfahren', 'custom-theme' ); ?> →
+                        <?php esc_html_e( 'Mehr erfahren', 'ib-mosbacher' ); ?> →
                     </a>
 
                 </div>
@@ -120,14 +120,14 @@ $found_posts  = (int) $wp_query->found_posts;
     <?php /* ── Pagination ───────────────────────────────────────────────── */ ?>
     <?php
     $pagination = paginate_links( [
-        'prev_text' => '← ' . esc_html__( 'Zurück', 'custom-theme' ),
-        'next_text' => esc_html__( 'Weiter', 'custom-theme' ) . ' →',
+        'prev_text' => '← ' . esc_html__( 'Zurück', 'ib-mosbacher' ),
+        'next_text' => esc_html__( 'Weiter', 'ib-mosbacher' ) . ' →',
         'type'      => 'array',
     ] );
 
     if ( $pagination ) :
     ?>
-    <nav class="archive-pagination" aria-label="<?php esc_attr_e( 'Seitennavigation', 'custom-theme' ); ?>">
+    <nav class="archive-pagination" aria-label="<?php esc_attr_e( 'Seitennavigation', 'ib-mosbacher' ); ?>">
         <ul class="archive-pagination__list">
             <?php foreach ( $pagination as $page ) : ?>
             <li class="archive-pagination__item"><?php echo $page; // phpcs:ignore ?></li>
@@ -148,12 +148,12 @@ $found_posts  = (int) $wp_query->found_posts;
             <line x1="11" y1="16" x2="11.01" y2="16"/>
         </svg>
 
-        <h2 class="search-empty__title"><?php esc_html_e( 'Keine Ergebnisse gefunden', 'custom-theme' ); ?></h2>
+        <h2 class="search-empty__title"><?php esc_html_e( 'Keine Ergebnisse gefunden', 'ib-mosbacher' ); ?></h2>
 
         <?php if ( $search_query ) : ?>
         <p class="search-empty__text">
             <?php printf(
-                esc_html__( 'Für „%s" wurden keine Inhalte gefunden. Versuche es mit anderen Suchbegriffen.', 'custom-theme' ),
+                esc_html__( 'Für „%s" wurden keine Inhalte gefunden. Versuche es mit anderen Suchbegriffen.', 'ib-mosbacher' ),
                 esc_html( $search_query )
             ); ?>
         </p>
@@ -164,7 +164,7 @@ $found_posts  = (int) $wp_query->found_posts;
         </div>
 
         <a class="btn btn--outline" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <?php esc_html_e( '← Zur Startseite', 'custom-theme' ); ?>
+            <?php esc_html_e( '← Zur Startseite', 'ib-mosbacher' ); ?>
         </a>
     </div>
 

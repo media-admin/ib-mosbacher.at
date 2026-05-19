@@ -45,7 +45,7 @@
 
             <p class="site-footer__copyright">
                 &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.
-                <?php esc_html_e('Alle Rechte vorbehalten.', 'custom-theme'); ?>
+                <?php esc_html_e('Alle Rechte vorbehalten.', 'ib-mosbacher'); ?>
             </p>
 
             <?php
@@ -56,7 +56,7 @@
                     'menu_class'           => 'footer-legal__list',
                     'container'            => 'nav',
                     'container_class'      => 'footer-legal',
-                    'container_aria_label' => __('Rechtliche Links', 'custom-theme'),
+                    'container_aria_label' => __('Rechtliche Links', 'ib-mosbacher'),
                     'depth'                => 1,       // Nur eine Ebene – keine Submenüs
                     'fallback_cb'          => false,
                 ]);
@@ -68,7 +68,7 @@
         <div class="site-footer__credit">
 
             <p>
-                <?php esc_html_e('Konzept und Programmierung:', 'custom-theme'); ?>
+                <?php esc_html_e('Konzept und Programmierung:', 'ib-mosbacher'); ?>
                     <a 
                     href="https://www.media-lab.at"
                     target="_blank"
@@ -87,7 +87,7 @@
 if ( function_exists('get_field') && get_field('btt_enabled', 'option') ) : ?>
 <button
     class="back-to-top"
-    aria-label="<?php esc_attr_e('Zurück nach oben', 'custom-theme'); ?>"
+    aria-label="<?php esc_attr_e('Zurück nach oben', 'ib-mosbacher'); ?>"
     type="button"
 >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

@@ -17,22 +17,22 @@ get_header();
                 <div class="error-404__code" aria-hidden="true">404</div>
 
                 <h1 class="error-404__title">
-                    <?php esc_html_e( 'Seite nicht gefunden', 'custom-theme' ); ?>
+                    <?php esc_html_e( 'Seite nicht gefunden', 'ib-mosbacher' ); ?>
                 </h1>
 
                 <p class="error-404__message">
                     <?php esc_html_e(
                         'Die gesuchte Seite existiert leider nicht (mehr). Möglicherweise wurde sie verschoben oder gelöscht.',
-                        'custom-theme'
+                        'ib-mosbacher'
                     ); ?>
                 </p>
 
                 <div class="error-404__actions">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn--primary">
-                        <?php esc_html_e( 'Zur Startseite', 'custom-theme' ); ?>
+                        <?php esc_html_e( 'Zur Startseite', 'ib-mosbacher' ); ?>
                     </a>
                     <a href="javascript:history.back()" class="btn btn--outline">
-                        <?php esc_html_e( 'Zurück', 'custom-theme' ); ?>
+                        <?php esc_html_e( 'Zurück', 'ib-mosbacher' ); ?>
                     </a>
                 </div>
 
@@ -51,7 +51,7 @@ get_header();
                 ?>
                 <div class="error-404__links">
                     <p class="error-404__links-label">
-                        <?php esc_html_e( 'Vielleicht suchen Sie:', 'custom-theme' ); ?>
+                        <?php esc_html_e( 'Vielleicht suchen Sie:', 'ib-mosbacher' ); ?>
                     </p>
                     <ul class="error-404__links-list">
                         <?php foreach ( $top_items as $item ) : ?>

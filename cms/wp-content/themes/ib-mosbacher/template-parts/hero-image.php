@@ -9,7 +9,7 @@
  *   set_query_var('hero_args', ['post_id' => 42]);
  *   get_template_part('template-parts/hero-image');
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 if (!defined('ABSPATH')) exit;

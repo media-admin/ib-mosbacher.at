@@ -2,7 +2,7 @@
 /**
  * Single Post Template
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 get_header();
@@ -64,7 +64,7 @@ get_template_part( 'template-parts/components/breadcrumbs' );
                 <?php if ( get_the_modified_date() !== get_the_date() ) : ?>
                 <span class="single-post__meta-sep" aria-hidden="true">·</span>
                 <span class="single-post__updated">
-                    <?php printf( esc_html__( 'Aktualisiert: %s', 'custom-theme' ), get_the_modified_date() ); ?>
+                    <?php printf( esc_html__( 'Aktualisiert: %s', 'ib-mosbacher' ), get_the_modified_date() ); ?>
                 </span>
                 <?php endif; ?>
 
@@ -75,7 +75,7 @@ get_template_part( 'template-parts/components/breadcrumbs' );
                 ?>
                 <span class="single-post__meta-sep" aria-hidden="true">·</span>
                 <span class="single-post__read-time">
-                    <?php printf( esc_html__( '%d Min. Lesezeit', 'custom-theme' ), $read_time ); ?>
+                    <?php printf( esc_html__( '%d Min. Lesezeit', 'ib-mosbacher' ), $read_time ); ?>
                 </span>
             </div>
 
@@ -103,11 +103,11 @@ get_template_part( 'template-parts/components/breadcrumbs' );
             <?php
             the_content( sprintf(
                 '<span class="screen-reader-text">%s</span>',
-                esc_html__( 'Weiterlesen', 'custom-theme' )
+                esc_html__( 'Weiterlesen', 'ib-mosbacher' )
             ) );
 
             wp_link_pages( [
-                'before' => '<div class="page-links">' . esc_html__( 'Seiten:', 'custom-theme' ),
+                'before' => '<div class="page-links">' . esc_html__( 'Seiten:', 'ib-mosbacher' ),
                 'after'  => '</div>',
             ] );
             ?>
@@ -119,7 +119,7 @@ get_template_part( 'template-parts/components/breadcrumbs' );
         if ( $tags ) :
         ?>
         <footer class="single-post__tags">
-            <span class="single-post__tags-label"><?php esc_html_e( 'Tags:', 'custom-theme' ); ?></span>
+            <span class="single-post__tags-label"><?php esc_html_e( 'Tags:', 'ib-mosbacher' ); ?></span>
             <?php foreach ( $tags as $tag ) : ?>
             <a class="single-post__tag" href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
                 <?php echo esc_html( $tag->name ); ?>
@@ -139,7 +139,7 @@ get_template_part( 'template-parts/components/breadcrumbs' );
     <aside class="author-box">
         <?php echo get_avatar( $author_id, 80, '', get_the_author(), [ 'class' => 'author-box__avatar' ] ); ?>
         <div class="author-box__content">
-            <p class="author-box__label"><?php esc_html_e( 'Über den Autor', 'custom-theme' ); ?></p>
+            <p class="author-box__label"><?php esc_html_e( 'Über den Autor', 'ib-mosbacher' ); ?></p>
             <p class="author-box__name">
                 <a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>">
                     <?php the_author(); ?>
@@ -157,16 +157,16 @@ get_template_part( 'template-parts/components/breadcrumbs' );
 
     if ( $prev || $next ) :
     ?>
-    <nav class="post-nav" aria-label="<?php esc_attr_e( 'Beitragsnavigation', 'custom-theme' ); ?>">
+    <nav class="post-nav" aria-label="<?php esc_attr_e( 'Beitragsnavigation', 'ib-mosbacher' ); ?>">
         <?php if ( $prev ) : ?>
         <a class="post-nav__item post-nav__item--prev" href="<?php echo esc_url( get_permalink( $prev ) ); ?>">
-            <span class="post-nav__direction">← <?php esc_html_e( 'Vorheriger Beitrag', 'custom-theme' ); ?></span>
+            <span class="post-nav__direction">← <?php esc_html_e( 'Vorheriger Beitrag', 'ib-mosbacher' ); ?></span>
             <span class="post-nav__title"><?php echo esc_html( get_the_title( $prev ) ); ?></span>
         </a>
         <?php endif; ?>
         <?php if ( $next ) : ?>
         <a class="post-nav__item post-nav__item--next" href="<?php echo esc_url( get_permalink( $next ) ); ?>">
-            <span class="post-nav__direction"><?php esc_html_e( 'Nächster Beitrag', 'custom-theme' ); ?> →</span>
+            <span class="post-nav__direction"><?php esc_html_e( 'Nächster Beitrag', 'ib-mosbacher' ); ?> →</span>
             <span class="post-nav__title"><?php echo esc_html( get_the_title( $next ) ); ?></span>
         </a>
         <?php endif; ?>

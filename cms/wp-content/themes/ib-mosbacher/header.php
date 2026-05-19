@@ -20,7 +20,7 @@
 <?php wp_body_open(); ?>
 
 <a class="skip-link" href="#main-content">
-    <?php esc_html_e( 'Zum Inhalt springen', 'custom-theme' ); ?>
+    <?php esc_html_e( 'Zum Inhalt springen', 'ib-mosbacher' ); ?>
 </a>
 
 <?php
@@ -40,7 +40,7 @@ if ( function_exists('get_field') && get_field('scroll_progress_enabled', 'optio
     aria-valuemin="0"
     aria-valuemax="100"
     aria-valuenow="0"
-    aria-label="<?php esc_attr_e('Lesefortschritt', 'custom-theme'); ?>"
+    aria-label="<?php esc_attr_e('Lesefortschritt', 'ib-mosbacher'); ?>"
 ></div>
 <?php endif; endif; ?>
 

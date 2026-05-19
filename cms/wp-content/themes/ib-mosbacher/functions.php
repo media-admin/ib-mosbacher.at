@@ -62,9 +62,9 @@ function customtheme_setup() {
     
     // Navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'custom-theme'),
-        'footer' => __('Footer Menu', 'custom-theme'),
-        'footer-legal' => __('Footer Legal', 'custom-theme'),
+        'primary' => __('Primary Menu', 'ib-mosbacher'),
+        'footer' => __('Footer Menu', 'ib-mosbacher'),
+        'footer-legal' => __('Footer Legal', 'ib-mosbacher'),
     ));
     
     // Image sizes

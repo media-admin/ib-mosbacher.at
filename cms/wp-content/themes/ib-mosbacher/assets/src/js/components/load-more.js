@@ -51,14 +51,14 @@ export default class LoadMore {
     
     console.log('✅ Container found successfully');
     
-    // Check customTheme
-    if (typeof window.customTheme === 'undefined') {
-      console.error('❌ customTheme not defined');
+    // Check ibMosbacher
+    if (typeof window.ibMosbacher === 'undefined') {
+      console.error('❌ ibMosbacher not defined');
       alert('Configuration error');
       return;
     }
     
-    if (!window.customTheme.loadMoreNonce) {
+    if (!window.ibMosbacher.loadMoreNonce) {
       console.error('❌ loadMoreNonce missing');
       alert('Security token missing');
       return;
@@ -89,14 +89,14 @@ export default class LoadMore {
     try {
       console.log(`Fetching page ${nextPage} of ${maxPages}...`);
       
-      const response = await fetch(window.customTheme.ajaxUrl, {
+      const response = await fetch(window.ibMosbacher.ajaxUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
           action: 'agency_load_more',
-          nonce: window.customTheme.loadMoreNonce,
+          nonce: window.ibMosbacher.loadMoreNonce,
           post_type: postType,
           posts_per_page: postsPerPage,
           page: nextPage,

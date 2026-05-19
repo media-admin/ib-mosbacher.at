@@ -4,7 +4,7 @@
  *
  * Verwendet für: Kategorie, Tag, Autor, Datum, Custom Post Type Archive
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 get_header();
@@ -42,7 +42,7 @@ get_template_part( 'template-parts/components/breadcrumbs' );
         <?php global $wp_query; ?>
         <p class="archive-header__count">
             <?php printf(
-                esc_html( _n( '%s Beitrag', '%s Beiträge', $wp_query->found_posts, 'custom-theme' ) ),
+                esc_html( _n( '%s Beitrag', '%s Beiträge', $wp_query->found_posts, 'ib-mosbacher' ) ),
                 number_format_i18n( $wp_query->found_posts )
             ); ?>
         </p>
@@ -60,14 +60,14 @@ get_template_part( 'template-parts/components/breadcrumbs' );
     <?php /* ── Pagination ──────────────────────────────────────────────────── */ ?>
     <?php
     $pagination = paginate_links( [
-        'prev_text' => '← ' . esc_html__( 'Zurück', 'custom-theme' ),
-        'next_text' => esc_html__( 'Weiter', 'custom-theme' ) . ' →',
+        'prev_text' => '← ' . esc_html__( 'Zurück', 'ib-mosbacher' ),
+        'next_text' => esc_html__( 'Weiter', 'ib-mosbacher' ) . ' →',
         'type'      => 'array',
     ] );
 
     if ( $pagination ) :
     ?>
-    <nav class="archive-pagination" aria-label="<?php esc_attr_e( 'Seitennavigation', 'custom-theme' ); ?>">
+    <nav class="archive-pagination" aria-label="<?php esc_attr_e( 'Seitennavigation', 'ib-mosbacher' ); ?>">
         <ul class="archive-pagination__list">
             <?php foreach ( $pagination as $page ) : ?>
             <li class="archive-pagination__item">
@@ -83,10 +83,10 @@ get_template_part( 'template-parts/components/breadcrumbs' );
     <?php /* ── Keine Ergebnisse ────────────────────────────────────────────── */ ?>
     <div class="archive-empty">
         <p class="archive-empty__text">
-            <?php esc_html_e( 'Zu dieser Auswahl wurden keine Beiträge gefunden.', 'custom-theme' ); ?>
+            <?php esc_html_e( 'Zu dieser Auswahl wurden keine Beiträge gefunden.', 'ib-mosbacher' ); ?>
         </p>
         <a class="btn btn--primary" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <?php esc_html_e( 'Zur Startseite', 'custom-theme' ); ?>
+            <?php esc_html_e( 'Zur Startseite', 'ib-mosbacher' ); ?>
         </a>
     </div>
 

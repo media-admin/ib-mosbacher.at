@@ -14,7 +14,7 @@
  *   // → class="breadcrumbs" (Standard)
  *   // → class="breadcrumbs breadcrumbs--light" für dunkle Hintergründe
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 if ( ! defined('ABSPATH') ) exit;

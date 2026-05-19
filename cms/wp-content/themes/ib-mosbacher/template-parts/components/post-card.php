@@ -16,7 +16,7 @@
  *   set_query_var('post_card_variant', 'horizontal'); // default: 'default'
  *   get_template_part('template-parts/components/post-card');
  *
- * @package custom-theme
+ * @package ib-mosbacher
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -110,8 +110,8 @@ if ( $card_variant !== 'default' ) {
                 <span class="post-card__author"><?php echo esc_html( $author ); ?></span>
                 <?php endif; ?>
             </div>
-            <a class="post-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( sprintf( __( '%s lesen', 'custom-theme' ), $title ) ); ?>">
-                <?php esc_html_e( 'Lesen', 'custom-theme' ); ?> →
+            <a class="post-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( sprintf( __( '%s lesen', 'ib-mosbacher' ), $title ) ); ?>">
+                <?php esc_html_e( 'Lesen', 'ib-mosbacher' ); ?> →
             </a>
         </footer>
 

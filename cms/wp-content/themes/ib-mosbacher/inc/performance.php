@@ -187,7 +187,7 @@ add_filter( 'style_loader_tag', 'customtheme_nonblocking_css', 10, 4 );
 
 function customtheme_nonblocking_css( string $tag, string $handle, string $href, string $media ): string {
     // Nur Haupt-CSS, nur wenn Critical CSS existiert
-    if ( $handle !== 'custom-theme-style' ) return $tag;
+    if ( $handle !== 'ib-mosbacher-style' ) return $tag;
     if ( ! file_exists( get_template_directory() . '/assets/dist/css/critical.css' ) ) return $tag;
 
     // Non-blocking pattern: media="print" → onload → media="all"
@@ -372,7 +372,7 @@ function customtheme_defer_scripts( string $tag, string $handle, string $src ): 
         'jquery-core',
         'jquery-migrate',
         'wp-util',
-        'custom-theme-script', // Unser main.js (type="module" → bereits defer)
+        'ib-mosbacher-script', // Unser main.js (type="module" → bereits defer)
     ] );
 
     if ( in_array( $handle, $exclude_handles, true ) ) return $tag;

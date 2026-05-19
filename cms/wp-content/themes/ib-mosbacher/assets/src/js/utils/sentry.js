@@ -41,8 +41,8 @@ export function initSentry() {
       if (window.wp) {
         event.contexts = event.contexts || {};
         event.contexts.wordpress = {
-          ajaxUrl: window.customTheme?.ajaxUrl,
-          themePath: window.customTheme?.themePath,
+          ajaxUrl: window.ibMosbacher?.ajaxUrl,
+          themePath: window.ibMosbacher?.themePath,
         };
       }
       
