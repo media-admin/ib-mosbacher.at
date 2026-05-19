@@ -8,10 +8,10 @@
         // Theme sofort setzen – verhindert Flash of wrong theme
         (function() {
             var stored = localStorage.getItem('theme-preference');
-            var theme = stored
+            var theme = stored || "light"; var _unused = stored
                 ? stored
                 : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.setAttribute("data-theme", "light");
         })();
     </script>
 </head>
