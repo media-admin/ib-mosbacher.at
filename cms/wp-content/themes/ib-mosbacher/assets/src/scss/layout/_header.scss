@@ -158,3 +158,44 @@
         color:       inherit;
     }
 }
+
+// ── IB Mosbacher Header Overrides ────────────────────────────────────────────
+.site-header {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(25, 118, 176, 0.1);
+    box-shadow: 0 2px 8px rgba(25, 118, 176, 0.08);
+
+    .container {
+        max-width: 1200px;
+        margin-inline: auto;
+    }
+}
+
+.site-logo__img {
+    height: 64px;
+    width: auto;
+}
+
+.main-navigation a {
+    color: #1976B0 !important;
+    font-size: var(--text-base) !important;
+    font-weight: 600 !important;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #7AB32E;
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+    }
+
+    &:hover::after { transform: scaleX(1); }
+}
+
+.current-menu-item > a::after { transform: scaleX(1) !important; }

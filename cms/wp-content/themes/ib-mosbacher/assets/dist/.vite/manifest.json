@@ -17,6 +17,134 @@
       "_autoplay-dfYcfB9Q.js"
     ]
   },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-200.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-200.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-200italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-200italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-200italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-300.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-300.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-300italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-300italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-300italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-500.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-500.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-500italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-500italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-500italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-600.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-600.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-600italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-600italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-600italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-700.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-700.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-700italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-700italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-700italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-800.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-800.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-800italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-800italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-800italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-900.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-900.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-900italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-900italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-900italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-italic.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-italic.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-italic.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-italic.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-italic.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-italic.woff2"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-regular.ttf": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-regular.ttf",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-regular.ttf"
+  },
+  "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-regular.woff2": {
+    "file": "assets/nunito-sans-v19-latin_latin-ext-regular.woff2",
+    "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-regular.woff2"
+  },
   "src/js/components/accordion.js": {
     "file": "js/chunks/accordion-CP8M2-3_.js",
     "name": "accordion",
@@ -188,6 +316,40 @@
       "src/js/components/load-more.js",
       "src/js/components/ajax-filters.js",
       "src/js/components/google-maps.js"
+    ],
+    "assets": [
+      "assets/nunito-sans-v19-latin_latin-ext-200.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-200.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-200italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-200italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-300.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-300.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-300italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-300italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-regular.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-regular.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-500.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-500.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-500italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-500italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-600.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-600.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-600italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-600italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-700.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-700.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-700italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-700italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-800.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-800.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-800italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-800italic.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-900.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-900.ttf",
+      "assets/nunito-sans-v19-latin_latin-ext-900italic.woff2",
+      "assets/nunito-sans-v19-latin_latin-ext-900italic.ttf"
     ]
   },
   "src/js/utils/sentry.js": {

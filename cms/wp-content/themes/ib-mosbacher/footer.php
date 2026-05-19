@@ -1,86 +1,98 @@
 <footer class="site-footer">
     <div class="container">
 
+        <!-- Partner-Logos Leiste -->
+        <div class="site-footer__logos">
+            <?php
+            $logo = function_exists('get_field') ? get_field('logo_desktop', 'option') : null;
+            if ( $logo && ! empty( $logo['url'] ) ) : ?>
+                <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-footer__logo-link">
+                    <img
+                        src="<?php echo esc_url( $logo['url'] ); ?>"
+                        alt="<?php bloginfo('name'); ?>"
+                        class="site-footer__logo"
+                        loading="lazy"
+                        width="160"
+                    >
+                </a>
+            <?php endif; ?>
+            <img
+                src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/partner-logo-leiste.svg"
+                alt="Partner-Logos: Ziviltechniker Österreich, WISSEN WIE'S GELINGT, ÖWAV, Kleinwasserkraft Österreich"
+                class="site-footer__partner-logos"
+                loading="lazy"
+                height="48"
+            >
+        </div><!-- .site-footer__logos -->
+
+        <!-- Footer Hauptbereich -->
         <div class="site-footer__inner">
 
-            <?php
-            // ── Logo oder Site-Name ───────────────────────────────────────
-            $logo = function_exists('get_field') ? get_field('logo_desktop', 'option') : null;
-            ?>
-            <div class="site-footer__brand">
-                <?php if ( $logo && ! empty( $logo['url'] ) ) : ?>
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-footer__logo-link">
-                        <img
-                            src="<?php echo esc_url( $logo['url'] ); ?>"
-                            alt="<?php bloginfo('name'); ?>"
-                            class="site-footer__logo"
-                            loading="lazy"
-                        >
-                    </a>
-                <?php else : ?>
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-footer__site-name">
-                        <?php bloginfo('name'); ?>
-                    </a>
-                <?php endif; ?>
+            <!-- Kontakt -->
+            <div class="site-footer__contact">
+                <h3 class="site-footer__contact-title">IB MOSBACHER GMBH</h3>
+                <p>Ing. Jürgen Mosbacher</p>
+                <p><a href="tel:+436769606287">+43 676 / 960 62 87</a></p>
+                <p><a href="mailto:j.mosbacher@ib-mosbacher.at">j.mosbacher@ib-mosbacher.at</a></p>
             </div>
 
-            <?php
-            // ── Footer Navigation ─────────────────────────────────────────
-            if ( has_nav_menu('footer') ) :
+            <!-- Firmensitz -->
+            <div class="site-footer__address">
+                <h3 class="site-footer__address-title">FIRMENSITZ</h3>
+                <p>Steingasse 8<br>2620 Loipersbach</p>
+            </div>
+
+            <!-- Bürostandort -->
+            <div class="site-footer__address">
+                <h3 class="site-footer__address-title">BÜROSTANDORT</h3>
+                <p>Komzakgasse 8<br>2620 Neunkirchen</p>
+            </div>
+
+            <!-- Navigation -->
+            <?php if ( has_nav_menu('primary') ) :
                 wp_nav_menu(array(
-                    'theme_location' => 'footer',
-                    'menu_class'     => 'footer-nav__list',
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'site-footer__nav-list',
                     'container'      => 'nav',
-                    'container_class'=> 'site-footer__nav footer-nav',
+                    'container_class'=> 'site-footer__nav',
                     'container_aria_label' => 'Footer Navigation',
-                    'depth'          => 4,
+                    'depth'          => 1,
                     'fallback_cb'    => false,
                 ));
-            endif;
-            ?>
+            endif; ?>
 
         </div><!-- .site-footer__inner -->
 
+        <!-- Footer Bottom -->
         <div class="site-footer__bottom">
 
+            <?php if ( has_nav_menu('footer') ) :
+                wp_nav_menu([
+                    'theme_location' => 'footer',
+                    'menu_class'     => 'site-footer__legal-list',
+                    'container'      => 'nav',
+                    'container_class'=> 'site-footer__legal',
+                    'depth'          => 1,
+                    'fallback_cb'    => false,
+                ]);
+            endif; ?>
+
             <p class="site-footer__copyright">
-                &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.
-                <?php esc_html_e('Alle Rechte vorbehalten.', 'ib-mosbacher'); ?>
+                Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>
             </p>
 
-            <?php
-            // ── Footer Legal Navigation ───────────────────────────────────────────
-            if ( has_nav_menu('footer-legal') ) :
-                wp_nav_menu([
-                    'theme_location'       => 'footer-legal',
-                    'menu_class'           => 'footer-legal__list',
-                    'container'            => 'nav',
-                    'container_class'      => 'footer-legal',
-                    'container_aria_label' => __('Rechtliche Links', 'ib-mosbacher'),
-                    'depth'                => 1,       // Nur eine Ebene – keine Submenüs
-                    'fallback_cb'          => false,
-                ]);
-            endif;
-            ?>
+            <p class="site-footer__credit">
+                <em>Webdesign &amp; Programmierung | <a href="https://www.media-lab.at" target="_blank" rel="noopener noreferrer">Media Lab Tritremmel GmbH</a></em>
+            </p>
 
         </div><!-- .site-footer__bottom -->
 
-        <div class="site-footer__credit">
-
-            <p>
-                <?php esc_html_e('Konzept und Programmierung:', 'ib-mosbacher'); ?>
-                    <a 
-                    href="https://www.media-lab.at"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >Media Lab Tritremmel GmbH</a>
-            </p>
-        </div>
-
     </div><!-- .container -->
-</footer>
 
-</div><!-- #page -->
+    <!-- Farbige Trennlinie ganz unten -->
+    <div class="site-footer__divider"></div>
+
+</footer>
 
 <?php
 // ── Back-to-Top Button ────────────────────────────────────────────────────

@@ -927,3 +927,145 @@ body {
     }
   }
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// FOOTER OVERRIDES – IB Mosbacher
+// ─────────────────────────────────────────────────────────────────
+
+.site-footer {
+    background: linear-gradient(180deg, #cde8f4 0%, #b8ddf0 100%);
+    padding-block: var(--space-2xl) var(--space-lg);
+    margin-top: var(--space-2xl);
+
+    .container { max-width: 1200px; margin-inline: auto; }
+
+    // Partner-Logos Leiste
+    &__logos {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xl);
+        flex-wrap: wrap;
+        padding-bottom: var(--space-lg);
+        border-bottom: 1px solid rgba(25, 118, 176, 0.15);
+        margin-bottom: var(--space-lg);
+
+        img { height: 48px; width: auto; object-fit: contain; }
+        &__logo { height: 56px; }
+        .site-footer__partner-logos { height: 44px; }
+    }
+
+    // Hauptbereich – 4 Spalten
+    &__inner {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: var(--space-xl);
+        padding-bottom: var(--space-lg);
+        border-bottom: 1px solid rgba(25, 118, 176, 0.15);
+        margin-bottom: var(--space-lg);
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Kontakt-Spalte
+    &__contact-title,
+    &__address-title {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: #1976B0;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0 0 var(--space-sm);
+    }
+
+    &__contact p,
+    &__address p {
+        font-size: var(--text-sm);
+        color: #4a4a4a;
+        margin: 0 0 4px;
+        line-height: 1.6;
+    }
+
+    &__contact a {
+        color: #1976B0;
+        font-weight: 600;
+        text-decoration: none;
+        &:hover { text-decoration: underline; }
+    }
+
+    // Footer-Navigation
+    &__nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    &__nav a {
+        font-size: var(--text-sm);
+        color: #4a4a4a;
+        text-decoration: none;
+        &:hover { color: #1976B0; }
+    }
+
+    // Bottom-Leiste
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__legal ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: var(--space-lg);
+    }
+
+    &__legal a {
+        font-size: var(--text-sm);
+        color: #4a4a4a;
+        text-decoration: none;
+        &:hover { color: #1976B0; }
+    }
+
+    &__copyright,
+    &__credit {
+        font-size: var(--text-xs);
+        color: #888;
+        margin: 0;
+    }
+
+    &__credit a {
+        color: #888;
+        text-decoration: none;
+        &:hover { color: #1976B0; }
+    }
+
+    // Farbige Trennlinie
+    &__divider {
+        height: 4px;
+        background: linear-gradient(90deg, #7AB32E 50%, #1976B0 50%);
+        margin-top: var(--space-lg);
+    }
+}
+
+// Theme Switcher ausblenden (für IB Mosbacher nicht benötigt)
+.theme-switcher,
+.theme-toggle,
+[class*="theme-switch"] { display: none !important; }

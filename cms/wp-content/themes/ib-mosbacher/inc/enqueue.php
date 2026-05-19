@@ -185,11 +185,6 @@ function customtheme_add_preconnect(): void {
         }
     }
 
-    if ( $uses_google_fonts ) {
-        echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-        echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
-    }
-
     if ( defined( 'GOOGLE_MAPS_API_KEY' ) && GOOGLE_MAPS_API_KEY ) {
         echo '<link rel="dns-prefetch" href="https://maps.googleapis.com">' . "\n";
         echo '<link rel="dns-prefetch" href="https://maps.gstatic.com">' . "\n";

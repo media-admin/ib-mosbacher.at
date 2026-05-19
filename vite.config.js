@@ -3,6 +3,7 @@ import liveReload from 'vite-plugin-live-reload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import autoprefixer from 'autoprefixer';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // Compression (Brotli + Gzip) – graceful fallback wenn nicht installiert
 let compression = null;
@@ -38,6 +39,22 @@ export default defineConfig({
       'cms/wp-content/themes/ib-mosbacher/**/*.php',
       'cms/wp-content/themes/ib-mosbacher/**/*.twig', // falls Twig verwendet wird
     ]),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(themeDir, 'assets/src/images/*'),
+          dest: 'images'
+        }
+      ]
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(themeDir, 'assets/src/images/*'),
+          dest: 'images'
+        }
+      ]
+    }),
     ...(compression
       ? [
           compression({ algorithm: 'brotliCompress', exclude: [/\.(br|gz)$/] }),
