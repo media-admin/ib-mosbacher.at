@@ -1,0 +1,31 @@
+project:
+  name: ib-mosbacher
+  client_name: IB Mosbacher GmbH
+
+domain:
+  new: ib-mosbacher.at
+  protocol: https
+  old: 
+
+wordpress:
+  path: cms
+  db_prefix: ibm_
+  locale: de_AT
+
+admin:
+  create: true
+  username: media-admin
+  email: ib-mosbacher@media-lab.at
+  password: 
+  display_name: IB Mosbacher Admin
+
+theme:
+  source: custom-theme
+
+plugins:
+  rename_prefix: false
+
+options:
+  backup: false
+  dry_run: false
+  verbose: true

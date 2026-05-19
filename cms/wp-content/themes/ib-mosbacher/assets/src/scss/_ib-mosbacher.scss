@@ -1,0 +1,927 @@
+// =============================================================================
+// IB Mosbacher GmbH – Projekt-spezifische Styles
+// Datei: _ib-mosbacher.scss  →  in style.scss importieren
+// Erstellt: 2025-05-19
+// =============================================================================
+
+
+// ─────────────────────────────────────────────────────────────────
+// PAGE BACKGROUND – Eisblau-Gradient (globaler Seitenhintergrund)
+// ─────────────────────────────────────────────────────────────────
+
+body {
+  background-color: var(--color-bg-ice);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.6) 0%, transparent 70%),
+    linear-gradient(180deg, #d4ecf7 0%, #e8f5fb 40%, #f0f9fd 70%, #ffffff 100%);
+  background-attachment: fixed;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text);
+}
+
+// Container maximal 1200px, zentriert
+.container,
+.wp-container {
+  max-width: $container-width;
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// HEADER
+// ─────────────────────────────────────────────────────────────────
+
+.site-header {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba($color-primary, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  padding-block: $spacing-2;
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-3;
+  }
+
+  .site-logo img {
+    height: 64px;
+    width: auto;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────────────────────────
+
+.main-navigation {
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $spacing-4;
+  }
+
+  a {
+    font-size: var(--text-base);
+    font-weight: $font-weight-semibold;
+    color: $color-primary;
+    text-decoration: none;
+    padding-block: $spacing-1;
+    transition: $transition-fast;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $color-secondary;
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    &:hover::after,
+    &.current-menu-item::after {
+      transform: scaleX(1);
+    }
+  }
+
+  // Aktive Seite: Unterstrich sichtbar
+  .current-menu-item > a,
+  .current-page-ancestor > a {
+    &::after { transform: scaleX(1); }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// HERO / PAGE-BANNER
+// Grauer Placeholder-Bereich oben auf jeder Unterseite
+// ─────────────────────────────────────────────────────────────────
+
+.page-hero {
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  background: $color-grey-light;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Homepage Hero (größer)
+.hero-section {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+  background: $color-grey-light;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PAGE TITLE BLOCK
+// Seitenüberschrift mit blauem Hintergrund + grünem Unterstrich
+// ─────────────────────────────────────────────────────────────────
+
+.page-title-block {
+  display: inline-block;
+  margin-block: $spacing-4 $spacing-3;
+
+  h1, .page-title {
+    display: inline-block;
+    background: $color-primary;
+    color: $color-white;
+    font-size: var(--text-2xl);
+    font-weight: $font-weight-bold;
+    padding: $spacing-1 $spacing-2;
+    margin: 0;
+    border-radius: $radius-sm;
+  }
+
+  // Grüne Linie unterhalb
+  &::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: $color-secondary;
+    width: 100%;
+    margin-top: 4px;
+    border-radius: $radius-full;
+  }
+}
+
+// Sektions-Überschriften (GROSSBUCHSTABEN, Primärblau)
+.section-heading {
+  font-size: var(--text-2xl);
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: $spacing-3;
+
+  // Grüner Unterstrich
+  &::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 48px;
+    background: $color-secondary;
+    margin-top: $spacing-1;
+    border-radius: $radius-full;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// FLOATING CTA BUTTONS (rechte Seite)
+// ─────────────────────────────────────────────────────────────────
+
+.floating-cta {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: $z-dropdown;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: $color-white;
+    text-decoration: none;
+    transition: $transition-fast;
+
+    svg, .dashicons {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    &.cta-phone {
+      background: $color-cta-phone;
+      &:hover { background: $color-primary-dark; }
+    }
+
+    &.cta-email {
+      background: $color-cta-email;
+      &:hover { background: $color-secondary-dark; }
+    }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PROJECT CARDS (Projekte / Referenzen)
+// ─────────────────────────────────────────────────────────────────
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-3;
+  margin-block: $spacing-4;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background: $color-white;
+  border-radius: $radius-base;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+
+  .project-card__image {
+    aspect-ratio: 4 / 3;
+    background: $color-grey-light;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover img { transform: scale(1.04); }
+  }
+
+  .project-card__body {
+    padding: $spacing-2;
+    border-top: 2px solid $color-secondary;
+  }
+
+  .project-card__title {
+    font-size: var(--text-base);
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin: 0 0 4px;
+    text-decoration: none;
+  }
+
+  .project-card__meta {
+    font-size: var(--text-sm);
+    color: $color-grey-dark;
+    margin: 0;
+  }
+}
+
+// Projekt-Filter-Tabs
+.project-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-1;
+  margin-bottom: $spacing-3;
+
+  .filter-tab {
+    padding: 6px $spacing-2;
+    border: 1px solid $color-grey-light;
+    border-radius: $radius-sm;
+    background: $color-white;
+    font-size: var(--text-sm);
+    font-weight: $font-weight-medium;
+    color: $color-grey-dark;
+    cursor: pointer;
+    transition: $transition-fast;
+    white-space: nowrap;
+
+    &:hover,
+    &.active {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// REFERENCE CLIENTS (Logo-Grid)
+// ─────────────────────────────────────────────────────────────────
+
+.reference-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-3;
+  margin-block: $spacing-3;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reference-client-card {
+  border: 1px solid $color-grey-light;
+  border-radius: $radius-base;
+  padding: $spacing-2;
+  text-align: center;
+  background: $color-white;
+
+  .client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    margin-bottom: $spacing-2;
+
+    img {
+      max-height: 60px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // Blauer Unterstrich unter Logo
+  .client-divider {
+    height: 2px;
+    background: $color-primary;
+    margin-block: $spacing-1;
+  }
+
+  .client-name {
+    font-size: var(--text-sm);
+    font-weight: $font-weight-semibold;
+    color: $color-dark;
+    margin: 0 0 4px;
+  }
+
+  .client-url {
+    font-size: var(--text-xs);
+    color: $color-grey;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover { color: $color-primary; }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// TEAM SECTION (Über uns)
+// ─────────────────────────────────────────────────────────────────
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-4;
+  margin-block: $spacing-3;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-card {
+  .team-card__image {
+    aspect-ratio: 4 / 3;
+    background: $color-grey-light;
+    border-radius: $radius-base;
+    overflow: hidden;
+    margin-bottom: $spacing-2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .team-card__name {
+    font-size: var(--text-xl);
+    font-weight: $font-weight-semibold;
+    color: $color-dark;
+    margin: 0 0 4px;
+  }
+
+  // Grüner Unterstrich
+  .team-card__divider {
+    height: 2px;
+    background: $color-secondary;
+    margin-block: $spacing-1;
+    width: 100%;
+  }
+
+  .team-card__role {
+    font-size: var(--text-sm);
+    color: $color-secondary;
+    font-weight: $font-weight-semibold;
+    margin: 0 0 4px;
+  }
+
+  .team-card__info {
+    font-size: var(--text-sm);
+    color: $color-grey-dark;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PARTNER NETWORK (Über uns)
+// ─────────────────────────────────────────────────────────────────
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-3;
+  margin-block: $spacing-3;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.partner-card {
+  border: 1px solid $color-grey-light;
+  border-radius: $radius-base;
+  padding: $spacing-2;
+  text-align: center;
+  background: $color-white;
+
+  .partner-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-1;
+
+    img {
+      max-height: 60px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .partner-divider {
+    height: 2px;
+    background: $color-primary;
+    margin-block: $spacing-1;
+  }
+
+  .partner-name {
+    font-size: var(--text-sm);
+    font-weight: $font-weight-semibold;
+    color: $color-dark;
+    margin: 0 0 4px;
+  }
+
+  .partner-url {
+    font-size: var(--text-xs);
+    color: $color-grey;
+    text-decoration: none;
+
+    &:hover { color: $color-primary; }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// LEISTUNGEN PAGE – Service Fachgebiete Icons Grid
+// ─────────────────────────────────────────────────────────────────
+
+.fachgebiete-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-3;
+  margin-block: $spacing-3;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fachgebiet-card {
+  text-align: center;
+
+  .fachgebiet-card__image {
+    aspect-ratio: 4 / 3;
+    background: $color-grey-light;
+    border-radius: $radius-base;
+    overflow: hidden;
+    margin-bottom: $spacing-1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img { transform: scale(1.04); }
+  }
+
+  .fachgebiet-card__title {
+    font-size: var(--text-sm);
+    font-weight: $font-weight-semibold;
+    color: $color-dark;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+// Leistungen Einzel-Einträge (Bild links/rechts wechselnd)
+.leistung-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-4;
+  align-items: start;
+  margin-block: $spacing-5;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+
+  &:nth-child(even) {
+    .leistung-item__image { order: 2; }
+    .leistung-item__content { order: 1; }
+  }
+
+  .leistung-item__image {
+    aspect-ratio: 4 / 3;
+    background: $color-grey-light;
+    border-radius: $radius-base;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .leistung-item__title {
+    font-size: var(--text-xl);
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin: 0 0 $spacing-2;
+  }
+
+  .leistung-item__text {
+    font-size: var(--text-base);
+    color: $color-grey-dark;
+    line-height: $line-height-relaxed;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// KONTAKT FORMULAR
+// ─────────────────────────────────────────────────────────────────
+
+.contact-form-wrapper {
+  max-width: 760px;
+
+  h2.form-title {
+    font-size: var(--text-2xl);
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: $spacing-3;
+  }
+}
+
+.wpcf7 {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-3;
+    margin-bottom: $spacing-3;
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: $font-weight-medium;
+    color: $color-grey-dark;
+    margin-bottom: 4px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    border: 1px solid $color-grey-light;
+    border-radius: $radius-sm;
+    padding: $spacing-1 $spacing-2;
+    font-size: var(--text-base);
+    font-family: $font-primary;
+    color: $color-dark;
+    background: $color-white;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    &::placeholder {
+      color: $color-grey;
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .submit-btn,
+  input[type="submit"] {
+    background: $color-primary;
+    color: $color-white;
+    border: 2px solid $color-primary;
+    border-radius: $radius-sm;
+    padding: $spacing-1 $spacing-3;
+    font-size: var(--text-base);
+    font-weight: $font-weight-bold;
+    font-family: $font-primary;
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      background: $color-primary-dark;
+      border-color: $color-primary-dark;
+    }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// FOOTER
+// ─────────────────────────────────────────────────────────────────
+
+.site-footer {
+  background: linear-gradient(180deg, #cde8f4 0%, #b8ddf0 100%);
+  padding-block: $spacing-6 $spacing-3;
+  margin-top: $spacing-6;
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr auto;
+    gap: $spacing-4;
+    align-items: start;
+    padding-bottom: $spacing-4;
+    border-bottom: 1px solid rgba($color-primary, 0.15);
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Partner-Logos-Leiste im Footer
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+    padding-bottom: $spacing-3;
+
+    img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  .footer-contact {
+    h3 {
+      font-size: var(--text-base);
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+      text-transform: uppercase;
+      margin: 0 0 $spacing-1;
+    }
+
+    p {
+      font-size: var(--text-sm);
+      color: $color-grey-dark;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    a {
+      color: $color-primary;
+      font-weight: $font-weight-bold;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  .footer-nav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px $spacing-3;
+    }
+
+    a {
+      font-size: var(--text-sm);
+      color: $color-grey-dark;
+      text-decoration: none;
+
+      &:hover { color: $color-primary; }
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-1;
+    padding-top: $spacing-3;
+    text-align: center;
+
+    .footer-legal-links {
+      display: flex;
+      gap: $spacing-3;
+
+      a {
+        font-size: var(--text-sm);
+        color: $color-grey-dark;
+        text-decoration: none;
+
+        &:hover { color: $color-primary; }
+      }
+    }
+
+    .footer-copyright,
+    .footer-credit {
+      font-size: var(--text-xs);
+      color: $color-grey;
+      margin: 0;
+    }
+
+    .footer-credit {
+      font-style: italic;
+    }
+  }
+}
+
+// Trennlinie (grün + blau) ganz unten im Footer
+.footer-divider {
+  height: 4px;
+  background: linear-gradient(90deg, $color-secondary 50%, $color-primary 50%);
+  margin-top: $spacing-2;
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// BUTTONS
+// ─────────────────────────────────────────────────────────────────
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-1;
+  padding: $spacing-1 $spacing-3;
+  border-radius: $radius-sm;
+  font-size: var(--text-base);
+  font-weight: $font-weight-bold;
+  font-family: $font-primary;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  border: 2px solid transparent;
+
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+
+    &:hover {
+      background: $color-primary-dark;
+      border-color: $color-primary-dark;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+// "Zu den Referenzprojekten" Link
+.link-arrow {
+  font-size: var(--text-sm);
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  &::after {
+    content: '→';
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: $color-primary-dark;
+    &::after { transform: translateX(3px); }
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PROJEKT-DETAILSEITE
+// ─────────────────────────────────────────────────────────────────
+
+.project-detail {
+  .project-eckdaten {
+    margin-block: $spacing-4;
+  }
+
+  .project-eckdaten__image {
+    aspect-ratio: 16 / 7;
+    background: $color-grey-light;
+    border-radius: $radius-base;
+    overflow: hidden;
+    margin-bottom: $spacing-2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .project-eckdaten__meta {
+    text-align: center;
+
+    .project-title {
+      font-size: var(--text-xl);
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+      font-style: italic;
+      margin: 0 0 4px;
+    }
+
+    .project-client,
+    .project-timeframe,
+    .project-category {
+      font-size: var(--text-sm);
+      color: $color-grey-dark;
+      margin: 0;
+    }
+  }
+}

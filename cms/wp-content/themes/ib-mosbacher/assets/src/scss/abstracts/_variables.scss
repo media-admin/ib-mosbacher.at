@@ -1,0 +1,351 @@
+// =============================================================================
+// DESIGN TOKENS – IB Mosbacher GmbH
+// Abgeleitet aus Figma-Design: Website-ib-mosbacher.at
+// Erstellt: 2025-05-19
+// =============================================================================
+
+
+// ─────────────────────────────────────────────────────────────────
+// 1. BRAND COLORS – IB Mosbacher
+// ─────────────────────────────────────────────────────────────────
+
+$color-primary:   #1976B0;  // Hauptblau – Header, Buttons, aktive Nav
+$color-secondary: #7AB32E;  // Akzentgrün – Unterstriche, Highlights, E-Mail-Button
+$color-accent:    #1976B0;  // Alias Primary
+
+// Hintergrund – helles Eisblau (Page-Background + Hero-Bereich)
+$color-bg-ice:    #E5F3F9;
+$color-bg-light:  #F0F8FC;
+
+// Floating CTA Buttons
+$color-cta-phone: #1976B0;  // Telefonbutton rechts
+$color-cta-email: #7AB32E;  // E-Mail-Button rechts
+
+// Hero-Slider Gradient
+$color-hero-gradient: #1976B0;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 2. NEUTRAL PALETTE
+// ─────────────────────────────────────────────────────────────────
+
+$color-black:      #000000;
+$color-dark:       #2C2C2C;
+$color-grey-dark:  #4a4a4a;
+$color-grey:       #888888;
+$color-grey-light: #e0e0e0;
+$color-light:      #f5f5f5;
+$color-white:      #ffffff;
+
+$color-gray-900: $color-dark;
+$color-gray-700: $color-grey-dark;
+$color-gray-400: $color-grey;
+$color-gray-200: $color-grey-light;
+$color-gray-100: #f0f0f0;
+$color-gray-50:  $color-light;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 3. SEMANTIC / STATUS COLORS
+// ─────────────────────────────────────────────────────────────────
+
+$color-success:       #10b981;
+$color-success-light: #d1fae5;
+$color-warning:       #f59e0b;
+$color-warning-light: #fef3c7;
+$color-error:         #ef4444;
+$color-error-light:   #fee2e2;
+$color-info:          #1976B0;
+$color-info-light:    #dbeafe;
+$color-danger:        $color-error;
+$color-woo-danger:    #cc0000;
+
+$color-info-dark:    #1e40af;
+$color-info-dim:     #93c5fd;
+$color-success-dim:  #86efac;
+$color-warning-dark: #92400e;
+$color-warning-dim:  #fcd34d;
+$color-error-dark:   #991b1b;
+$color-error-dim:    #fca5a5;
+$color-gold:         #fbbf24;
+$color-purple:       #8b5cf6;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 3b. VORKOMPILIERTE FARBVARIANTEN
+// ─────────────────────────────────────────────────────────────────
+
+$color-primary-dark:        #125d8a;  // darken($color-primary, 10%)
+$color-primary-darker:      #0e4d74;  // darken($color-primary, 15%)
+$color-secondary-dark:      #5e8c22;  // darken($color-secondary, 10%)
+
+$color-success-dark:        #075b3f;
+$color-success-light-bg:    #b5f8e2;
+$color-warning-dark:        #c47e08;
+$color-warning-darker:      #935f06;
+$color-warning-light-bg:    #fdebce;
+$color-warning-light-bg2:   #fef5e7;
+$color-error-light-bg:      #fce4e4;
+$color-info-light-bg:       #dbeafe;
+$color-hero-gradient-dark:  #125d8a;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 4. SEMANTIC USAGE TOKENS
+// ─────────────────────────────────────────────────────────────────
+
+$color-text:       $color-dark;
+$color-text-muted: $color-grey-dark;
+$color-text-light: $color-grey;
+$color-background: $color-white;
+$color-border:     $color-grey-light;
+$color-surface:    $color-white;
+$color-card-bg:    $color-white;
+$color-input-bg:   $color-white;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 5. CSS CUSTOM PROPERTIES
+// ─────────────────────────────────────────────────────────────────
+
+:root {
+  --color-primary:        #{$color-primary};
+  --color-secondary:      #{$color-secondary};
+  --color-accent:         #{$color-accent};
+  --color-bg-ice:         #{$color-bg-ice};
+  --color-bg-light:       #{$color-bg-light};
+  --color-cta-phone:      #{$color-cta-phone};
+  --color-cta-email:      #{$color-cta-email};
+
+  --color-background:     #{$color-white};
+  --color-surface:        #{$color-white};
+  --color-card-bg:        #{$color-white};
+  --color-input-bg:       #{$color-white};
+  --color-dark:           #{$color-dark};
+  --color-light:          #{$color-light};
+
+  --color-text:           #{$color-dark};
+  --color-text-muted:     #{$color-grey-dark};
+  --color-text-light:     #{$color-grey};
+  --color-text-secondary: #{$color-grey-dark};
+  --color-border:         #{$color-grey-light};
+
+  --color-success:        #{$color-success};
+  --color-warning:        #{$color-warning};
+  --color-error:          #{$color-error};
+  --color-info:           #{$color-info};
+
+  --notification-info-bg:         #{$color-info-light};
+  --notification-info-border:     #{$color-info};
+  --notification-info-text:       #{$color-info-dark};
+  --notification-info-dim:        #{$color-info};
+  --notification-success-bg:      #{$color-success-light};
+  --notification-success-border:  #{$color-success};
+  --notification-success-text:    #166534;
+  --notification-success-dim:     #{$color-success};
+  --notification-warning-bg:      #{$color-warning-light};
+  --notification-warning-border:  #{$color-warning};
+  --notification-warning-text:    #{$color-warning-dark};
+  --notification-warning-dim:     #{$color-warning};
+  --notification-error-bg:        #{$color-error-light};
+  --notification-error-border:    #{$color-error};
+  --notification-error-text:      #{$color-error-dark};
+  --notification-error-dim:       #{$color-error};
+
+  --color-gold:   #{$color-gold};
+  --color-purple: #{$color-purple};
+
+
+  // ═══════════════════════════════════════════════════════════════
+  // FLUID TYPOGRAPHY
+  // ═══════════════════════════════════════════════════════════════
+
+  --text-xs:   clamp(0.75rem,   1vw,    0.8125rem);
+  --text-sm:   clamp(0.8125rem, 1.2vw,  0.875rem);
+  --text-base: clamp(0.9375rem, 1.5vw,  1rem);
+  --text-lg:   clamp(1rem,      1.8vw,  1.125rem);
+  --text-xl:   clamp(1.125rem,  2vw,    1.25rem);
+  --text-2xl:  clamp(1.25rem,   2.5vw,  1.5rem);
+  --text-3xl:  clamp(1.375rem,  3vw,    1.75rem);
+  --text-4xl:  clamp(1.75rem,   4vw,    2rem);
+  --text-5xl:  clamp(2rem,      5vw,    2.5rem);
+  --text-h1:   clamp(2rem,      6vw,    3rem);
+  --text-hero: clamp(2.25rem,   7vw,    3.5rem);
+
+
+  // ═══════════════════════════════════════════════════════════════
+  // FLUID SPACING
+  // ═══════════════════════════════════════════════════════════════
+
+  --space-xs:      clamp(0.5rem,   1vw,   0.75rem);
+  --space-sm:      clamp(0.75rem,  2vw,   1rem);
+  --space-md:      clamp(1rem,     2.5vw, 1.5rem);
+  --space-lg:      clamp(1.5rem,   4vw,   2rem);
+  --space-xl:      clamp(2rem,     5vw,   3rem);
+  --space-2xl:     clamp(3rem,     7vw,   5rem);
+  --space-section: clamp(3rem,     8vw,   6rem);
+  --container-padding: clamp(1rem, 4vw, 2rem);
+}
+
+// Dark Mode (kein Dark Mode im Design vorgesehen – neutrales Fallback)
+[data-theme="dark"] {
+  --color-background:     #1a1a1a;
+  --color-surface:        #242424;
+  --color-card-bg:        #2a2a2a;
+  --color-input-bg:       #2a2a2a;
+  --color-dark:           #f5f5f5;
+  --color-light:          #1a1a1a;
+  --color-text:           #f5f5f5;
+  --color-text-muted:     #a0a0a0;
+  --color-text-light:     #b0b0b0;
+  --color-text-secondary: #a0a0a0;
+  --color-border:         #333333;
+}
+
+$color-background: var(--color-background);
+$color-surface:    var(--color-surface);
+$color-card-bg:    var(--color-card-bg);
+$color-input-bg:   var(--color-input-bg);
+$color-text:       var(--color-text);
+$color-text-muted: var(--color-text-muted);
+$color-text-light: var(--color-text-light);
+$color-border:     var(--color-border);
+
+
+// ─────────────────────────────────────────────────────────────────
+// 6. TYPOGRAPHY – IB Mosbacher
+//    Open Sans (sans-serif) – konsistent mit Firmenauftritt
+// ─────────────────────────────────────────────────────────────────
+
+$font-primary:   'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+$font-secondary: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+
+$font-size-xs:   12px;
+$font-size-sm:   14px;
+$font-size-base: 16px;
+$font-size-lg:   18px;
+$font-size-xl:   20px;
+$font-size-2xl:  24px;
+$font-size-3xl:  28px;
+$font-size-4xl:  32px;
+$font-size-5xl:  40px;
+$font-size-6xl:  48px;
+$font-size-7xl:  56px;
+
+$font-size-h1: $font-size-6xl;
+$font-size-h2: 36px;
+$font-size-h3: $font-size-3xl;
+$font-size-h4: $font-size-2xl;
+$font-size-h5: $font-size-xl;
+$font-size-h6: $font-size-lg;
+
+$font-weight-light:    300;
+$font-weight-normal:   400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+$line-height-tight:   1.2;
+$line-height-base:    1.6;
+$line-height-relaxed: 1.8;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 7. SPACING (8px Grid)
+// ─────────────────────────────────────────────────────────────────
+
+$spacing-unit: 8px;
+$spacing-0:  0;
+$spacing-1:  $spacing-unit;
+$spacing-2:  $spacing-unit * 2;
+$spacing-3:  $spacing-unit * 3;
+$spacing-4:  $spacing-unit * 4;
+$spacing-5:  $spacing-unit * 5;
+$spacing-6:  $spacing-unit * 6;
+$spacing-7:  $spacing-unit * 7;
+$spacing-8:  $spacing-unit * 8;
+$spacing-10: $spacing-unit * 10;
+$spacing-12: $spacing-unit * 12;
+$spacing-16: $spacing-unit * 16;
+
+$spacing-xs:  $spacing-1;
+$spacing-sm:  $spacing-2;
+$spacing-md:  $spacing-3;
+$spacing-lg:  $spacing-4;
+$spacing-xl:  $spacing-6;
+$spacing-2xl: $spacing-8;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 8. LAYOUT & BREAKPOINTS
+// ─────────────────────────────────────────────────────────────────
+
+$container-width:     1200px;
+$container-max-width: $container-width;
+$container-padding:   $spacing-md;
+
+$breakpoint-xs:  375px;
+$breakpoint-sm:  576px;
+$breakpoint-md:  768px;
+$breakpoint-lg:  992px;
+$breakpoint-xl:  1200px;
+$breakpoint-2xl: 1440px;
+
+$grid-columns: 12;
+$grid-gap:     $spacing-3;
+
+
+// ─────────────────────────────────────────────────────────────────
+// 9–13. BORDER RADIUS, SHADOWS, TRANSITIONS, Z-INDEX, SWIPER
+// ─────────────────────────────────────────────────────────────────
+
+$radius-none: 0;
+$radius-sm:   3px;
+$radius-base: 4px;
+$radius-md:   4px;
+$radius-lg:   8px;
+$radius-xl:   16px;
+$radius-full: 9999px;
+
+$shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-base: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md:   $shadow-base;
+$shadow-lg:   0 8px 16px rgba(0, 0, 0, 0.12);
+$shadow-xl:   0 16px 24px rgba(0, 0, 0, 0.15);
+
+$transition-fast:  all 0.15s ease;
+$transition-base:  all 0.3s ease;
+$transition-slow:  all 0.5s ease;
+
+$z-header:   100;
+$z-dropdown: 1000;
+$z-modal:    2000;
+$z-tooltip:  3000;
+
+:root {
+  --swiper-theme-color:                        #{$color-primary};
+  --swiper-navigation-color:                   #{$color-primary};
+  --swiper-navigation-size:                    44px;
+  --swiper-pagination-color:                   #{$color-primary};
+  --swiper-pagination-bullet-size:             10px;
+  --swiper-pagination-bullet-horizontal-gap:   6px;
+  --swiper-pagination-bullet-inactive-color:   #{$color-primary};
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-bullet-opacity:          1;
+}
+
+.swiper {
+  --swiper-theme-color:                        #{$color-primary};
+  --swiper-navigation-color:                   #{$color-primary};
+  --swiper-pagination-color:                   #{$color-primary};
+  --swiper-pagination-bullet-inactive-color:   #{$color-primary};
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-bullet-opacity:          1;
+  --swiper-pagination-bullet-size:             10px;
+  --swiper-pagination-bullet-horizontal-gap:   6px;
+}
+
+.swiper-pagination-bullet        { background: $color-primary !important; opacity: 0.3 !important; }
+.swiper-pagination-bullet-active { background: $color-primary !important; opacity: 1 !important; }
+.swiper-button-prev,
+.swiper-button-next               { color: $color-primary !important; }
