@@ -1396,3 +1396,207 @@ body {
 .ibm-logo-card__name {
     min-height: calc(7.2 * var(--text-sm)) !important;
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// CONTACT FORM 7
+// ─────────────────────────────────────────────────────────────────
+
+.cf7-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.cf7-col--full { grid-column: 1 / -1; }
+
+.wpcf7 {
+    label {
+        display: block;
+        font-size: var(--text-sm);
+        font-style: italic;
+        color: $color-grey-dark;
+        margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 100%;
+        border: 1px solid $color-grey-light;
+        border-radius: $radius-sm;
+        padding: $spacing-1 $spacing-2;
+        font-size: var(--text-base);
+        font-family: $font-primary;
+        color: $color-dark;
+        background: $color-white;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+        }
+
+        &::placeholder { color: $color-grey; }
+    }
+
+    textarea { min-height: 150px; resize: vertical; }
+
+    .wpcf7-acceptance {
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-1;
+        font-size: var(--text-sm);
+        color: $color-grey-dark;
+
+        a { color: $color-grey-dark; text-decoration: underline; }
+    }
+
+    input[type="submit"] {
+        background: $color-primary;
+        color: $color-white;
+        border: 2px solid $color-secondary;
+        border-radius: $radius-sm;
+        padding: $spacing-1 $spacing-3;
+        font-size: var(--text-base);
+        font-weight: $font-weight-bold;
+        font-family: $font-primary;
+        cursor: pointer;
+        transition: $transition-fast;
+        margin-top: var(--space-sm);
+
+        &:hover {
+            background: $color-primary-dark;
+            border-color: $color-primary-dark;
+        }
+    }
+}
+
+
+// H2 Gutenberg Block Heading – globale Anpassung
+h2.wp-block-heading {
+    border-bottom: none !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.02em !important;
+    display: block !important;
+}
+
+
+// CF7 Korrekturen
+.wpcf7 {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        border-radius: 0 !important;
+        border: 1px solid $color-grey-light !important;
+        padding: 6px $spacing-2 !important;
+    }
+
+    textarea { min-height: 100px !important; }
+
+    label {
+        margin-bottom: 1px !important;
+    }
+
+    input[type="submit"] {
+        border-radius: 0 !important;
+        background: $color-primary !important;
+        border: 2px solid $color-secondary !important;
+        color: $color-white !important;
+        padding: $spacing-1 $spacing-3 !important;
+    }
+
+    // Checkbox-Bereich: kein Box-Styling
+    .wpcf7-acceptance {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+
+
+// CF7 Feinabstimmung
+.wpcf7 {
+
+    // p-Tags vor Labels: reduzierter Zeilenabstand
+    p { line-height: 0.8 !important; }
+
+    // Acceptance: kein Border
+    .wpcf7-form-control.wpcf7-acceptance {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        line-height: 1.6 !important;
+    }
+
+    
+    }
+
+    // Label-Text neben Checkbox
+    .wpcf7-list-item-label {
+        font-size: var(--text-base) !important;
+        font-family: $font-primary !important;
+        font-style: italic;
+        color: $color-grey-dark;
+    }
+
+
+.wpcf7-form .wpcf7-acceptance .wpcf7-list-item {
+    border: none !important;
+    padding: 24px 16px !important;
+}
+
+.wpcf7 .wpcf7-list-item-label {
+    font-style: normal !important;
+}
+
+.wpcf7-list-item-label {
+    margin-left: 8px !important;
+}
+
+.wpcf7-list-item {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.wpcf7 input[type="checkbox"] {
+    position: relative !important;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: #fff;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 0 !important;
+    top: 2px !important;
+
+    &:checked {
+        background: $color-primary;
+        border-color: $color-primary !important;
+
+        &::after {
+            content: '✓';
+            color: $color-white;
+            font-size: 12px;
+            position: absolute;
+            top: -1px;
+            left: 2px;
+        }
+    }
+}
+
+
+.ibm-logo-card__name {
+    font-weight: 800 !important;
+}

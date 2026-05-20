@@ -274,6 +274,92 @@ function ibm_logos_shortcode( $atts ) {
 add_shortcode( 'ibm_logos', 'ibm_logos_shortcode' );
 
 
+
+// =============================================================================
+// PROJEKTE CPT + TAXONOMIEN
+// =============================================================================
+
+function ibm_register_project_cpt() {
+    register_post_type( 'project', array(
+        'labels' => array(
+            'name'               => __( 'Projekte', 'ib-mosbacher' ),
+            'singular_name'      => __( 'Projekt', 'ib-mosbacher' ),
+            'menu_name'          => __( 'Projekte', 'ib-mosbacher' ),
+            'add_new'            => __( 'Neu hinzufügen', 'ib-mosbacher' ),
+            'add_new_item'       => __( 'Neues Projekt', 'ib-mosbacher' ),
+            'edit_item'          => __( 'Projekt bearbeiten', 'ib-mosbacher' ),
+            'not_found'          => __( 'Keine Projekte gefunden', 'ib-mosbacher' ),
+            'not_found_in_trash' => __( 'Keine Projekte im Papierkorb', 'ib-mosbacher' ),
+        ),
+        'public'       => true,
+        'has_archive'  => true,
+        'show_in_rest' => true,
+        'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
+        'menu_icon'    => 'dashicons-portfolio',
+        'menu_position'=> 21,
+        'rewrite'      => array( 'slug' => 'projekte' ),
+        'taxonomies'   => array( 'project_category', 'projekt_fachgebiet' ),
+    ) );
+}
+add_action( 'init', 'ibm_register_project_cpt' );
+
+
+function ibm_register_project_category_taxonomy() {
+    register_taxonomy( 'project_category', array( 'project' ), array(
+        'labels' => array(
+            'name'          => __( 'Projekt Kategorien', 'ib-mosbacher' ),
+            'singular_name' => __( 'Projekt Kategorie', 'ib-mosbacher' ),
+            'menu_name'     => __( 'Kategorien', 'ib-mosbacher' ),
+        ),
+        'hierarchical'      => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'rewrite'           => array( 'slug' => 'projekt-kategorie' ),
+    ) );
+}
+add_action( 'init', 'ibm_register_project_category_taxonomy' );
+
+
+// ACF Felder für Projekte
+add_action( 'acf/init', 'ibm_register_project_acf_fields' );
+
+function ibm_register_project_acf_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) return;
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_ibm_projekt',
+        'title'  => 'Projekt-Eckdaten',
+        'fields' => array(
+            array(
+                'key'   => 'field_ibm_projekt_kunde',
+                'label' => 'Kunde',
+                'name'  => 'projekt_kunde',
+                'type'  => 'text',
+            ),
+            array(
+                'key'         => 'field_ibm_projekt_zeitraum',
+                'label'       => 'Umsetzungszeitraum',
+                'name'        => 'projekt_zeitraum',
+                'type'        => 'text',
+                'placeholder' => 'z.B. 2022–2023',
+            ),
+            array(
+                'key'   => 'field_ibm_projekt_leistungen',
+                'label' => 'Erbrachte Leistungen',
+                'name'  => 'projekt_leistungen',
+                'type'  => 'textarea',
+                'rows'  => 4,
+            ),
+        ),
+        'location' => array( array( array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'project',
+        ) ) ),
+        'menu_order' => 10,
+    ) );
+}
+
 // =============================================================================
 // LOGO-KATEGORIE TAXONOMIE (für medialab_logo CPT)
 // Partner-Netzwerk + Referenzkunden in einem CPT, getrennt via Kategorie
