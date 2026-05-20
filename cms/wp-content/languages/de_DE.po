@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.9.x package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-18 10:13:19+0000\n"
+"PO-Revision-Date: 2026-05-19 21:12:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3716,6 +3716,29 @@ msgstr ""
 "Das Team von ###SITENAME###\n"
 "###SITEURL###"
 
+#. translators: Do not translate SITENAME, SITEURL; those are placeholders.
+#: wp-includes/user.php:4511
+msgid ""
+"Howdy,\n"
+"\n"
+"Your request to erase your personal data on ###SITENAME### has been completed.\n"
+"\n"
+"If you have any follow-up questions or concerns, please contact the site administrator.\n"
+"\n"
+"Regards,\n"
+"All at ###SITENAME###\n"
+"###SITEURL###"
+msgstr ""
+"Hallo,\n"
+"\n"
+"deine Anfrage auf Löschung deiner personenbezogenen Daten auf ###SITENAME### wurde abgeschlossen.\n"
+"\n"
+"Wenn du weitere Fragen oder Bedenken hast, wende dich bitte an den Administrator der Website.\n"
+"\n"
+"Viele Grüße\n"
+"Das Team von ###SITENAME###\n"
+"###SITEURL###"
+
 #. translators: Do not translate SITENAME, SITEURL, PRIVACY_POLICY_URL; those
 #. are placeholders.
 #: wp-includes/user.php:4525
@@ -3739,29 +3762,6 @@ msgstr ""
 "Wenn du weitere Fragen oder Bedenken hast, wende dich bitte an den Administrator der Website.\n"
 "\n"
 "Für weitere Informationen kannst du auch unsere Datenschutzerklärung lesen: ###PRIVACY_POLICY_URL###\n"
-"\n"
-"Viele Grüße\n"
-"Das Team von ###SITENAME###\n"
-"###SITEURL###"
-
-#. translators: Do not translate SITENAME, SITEURL; those are placeholders.
-#: wp-includes/user.php:4511
-msgid ""
-"Howdy,\n"
-"\n"
-"Your request to erase your personal data on ###SITENAME### has been completed.\n"
-"\n"
-"If you have any follow-up questions or concerns, please contact the site administrator.\n"
-"\n"
-"Regards,\n"
-"All at ###SITENAME###\n"
-"###SITEURL###"
-msgstr ""
-"Hallo,\n"
-"\n"
-"deine Anfrage auf Löschung deiner personenbezogenen Daten auf ###SITENAME### wurde abgeschlossen.\n"
-"\n"
-"Wenn du weitere Fragen oder Bedenken hast, wende dich bitte an den Administrator der Website.\n"
 "\n"
 "Viele Grüße\n"
 "Das Team von ###SITENAME###\n"
@@ -7417,12 +7417,6 @@ msgstr "Die URL wurde nicht gefunden. Die Antwort gab einen anderen Statuscode a
 msgid "<strong>Error:</strong> Your account has been marked as a spammer."
 msgstr "<strong>Fehler:</strong> Dein Konto wurde als Spam markiert."
 
-#. translators: %s: Name of parameter being updated:
-#. font_family_settings[slug]".
-#: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:114
-msgid "%s cannot be updated."
-msgstr "%s konnte nicht aktualisiert werden."
-
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
 #. those are placeholders.
 #: wp-includes/user.php:3853
@@ -7457,6 +7451,12 @@ msgstr ""
 "Viele Grüße\n"
 "Das Team von ###SITENAME###\n"
 "###SITEURL###"
+
+#. translators: %s: Name of parameter being updated:
+#. font_family_settings[slug]".
+#: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:114
+msgid "%s cannot be updated."
+msgstr "%s konnte nicht aktualisiert werden."
 
 #. translators: Do not translate USERNAME, ADMIN_EMAIL, NEW_EMAIL, EMAIL,
 #. SITENAME, SITEURL: those are placeholders.

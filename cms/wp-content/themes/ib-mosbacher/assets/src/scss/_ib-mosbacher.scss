@@ -1069,3 +1069,75 @@ body {
 .theme-switcher,
 .theme-toggle,
 [class*="theme-switch"] { display: none !important; }
+
+
+// ─────────────────────────────────────────────────────────────────
+// LOGO GRIDS – [ibm_logos] Shortcode
+// ─────────────────────────────────────────────────────────────────
+
+.ibm-logos-grid {
+    display: grid;
+    gap: var(--space-md);
+    margin-block: var(--space-lg);
+
+    &--cols-4 { grid-template-columns: repeat(4, 1fr); }
+    &--cols-3 { grid-template-columns: repeat(3, 1fr); }
+    &--cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+    @media (max-width: 768px) {
+        &--cols-4,
+        &--cols-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.ibm-logo-card {
+    border: 1px solid $color-grey-light;
+    border-radius: $radius-base;
+    padding: var(--space-md);
+    text-align: center;
+    background: $color-white;
+    text-decoration: none;
+    display: block;
+    transition: $transition-base;
+
+    &:hover { box-shadow: $shadow-lg; transform: translateY(-2px); }
+
+    &__image {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--space-sm);
+
+        img {
+            max-height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__divider {
+        height: 2px;
+        background: $color-primary;
+        margin-block: var(--space-xs);
+    }
+
+    &__name {
+        font-size: var(--text-sm);
+        font-weight: $font-weight-semibold;
+        color: $color-dark;
+        margin: 0 0 4px;
+    }
+
+    &__url {
+        font-size: var(--text-xs);
+        color: $color-grey;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

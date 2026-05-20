@@ -192,6 +192,77 @@ function ibm_floating_cta_buttons() {
 add_action( 'wp_footer', 'ibm_floating_cta_buttons' );
 
 // =============================================================================
+// SHORTCODES – Logo-Grids nach Kategorie
+// Verwendung: [ibm_logos kategorie="referenzkunden"]
+//             [ibm_logos kategorie="partner-netzwerk"]
+// =============================================================================
+
+function ibm_logos_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'kategorie' => '',
+        'columns'   => 4,
+    ), $atts, 'ibm_logos' );
+
+    $query_args = array(
+        'post_type'      => 'medialab_logo',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
+    );
+
+    if ( ! empty( $atts['kategorie'] ) ) {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'logo_kategorie',
+                'field'    => 'slug',
+                'terms'    => sanitize_title( $atts['kategorie'] ),
+            ),
+        );
+    }
+
+    $logos = get_posts( $query_args );
+    if ( empty( $logos ) ) return '';
+
+    $columns = intval( $atts['columns'] );
+    $class   = 'ibm-logos-grid ibm-logos-grid--cols-' . $columns;
+
+    ob_start();
+    echo '<div class="' . esc_attr( $class ) . '">';
+
+    foreach ( $logos as $logo ) {
+        $image = get_field( 'logo_cpt_image', $logo->ID );
+        $name  = get_field( 'logo_cpt_name',  $logo->ID ) ?: get_the_title( $logo );
+        $url   = get_field( 'logo_cpt_url',   $logo->ID ) ?: '';
+
+        if ( ! $image ) continue;
+
+        echo '<div class="ibm-logo-card">';
+
+        if ( $url ) echo '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer">';
+
+        echo '<div class="ibm-logo-card__image">';
+        echo '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy">';
+        echo '</div>';
+
+        echo '<div class="ibm-logo-card__divider"></div>';
+        echo '<p class="ibm-logo-card__name">' . esc_html( $name ) . '</p>';
+
+        if ( $url ) {
+            echo '<p class="ibm-logo-card__url">' . esc_html( $url ) . '</p>';
+            echo '</a>';
+        }
+
+        echo '</div>';
+    }
+
+    echo '</div>';
+    return ob_get_clean();
+}
+add_shortcode( 'ibm_logos', 'ibm_logos_shortcode' );
+
+
+// =============================================================================
 // LOGO-KATEGORIE TAXONOMIE (für medialab_logo CPT)
 // Partner-Netzwerk + Referenzkunden in einem CPT, getrennt via Kategorie
 // =============================================================================
