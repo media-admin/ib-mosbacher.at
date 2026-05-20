@@ -245,7 +245,7 @@ function ibm_logos_shortcode( $atts ) {
         echo '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy">';
         echo '</div>';
 
-        echo '<div class="ibm-logo-card__divider"></div>';
+        echo '<div class="ibm-logo-card__divider ibm-logo-card__divider--green"></div><div class="ibm-logo-card__divider ibm-logo-card__divider--blue"></div>';
         echo '<p class="ibm-logo-card__name">' . esc_html( $name ) . '</p>';
 
         if ( $url ) {

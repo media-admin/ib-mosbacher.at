@@ -1141,3 +1141,258 @@ body {
         white-space: nowrap;
     }
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// GUTENBERG CONTENT STYLES
+// ─────────────────────────────────────────────────────────────────
+
+.entry-content {
+
+    // H2 Sektions-Überschriften → Primärblau + Großbuchstaben + grüner Akzent
+    h2 {
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: $color-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-top: var(--space-2xl);
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-xs);
+        border-bottom: 3px solid $color-secondary;
+        display: inline-block;
+    }
+
+    // H3 Unterüberschriften
+    h3 {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        color: $color-dark;
+        margin-top: var(--space-lg);
+        margin-bottom: var(--space-sm);
+    }
+}
+
+// Logo-Card Links bereinigen
+.ibm-logo-card {
+    color: inherit;
+
+    &__name {
+        text-decoration: none;
+        color: $color-dark;
+    }
+
+    &__url {
+        color: $color-grey;
+        text-decoration: none;
+    }
+
+    // Gleiche Höhe für alle Cards
+    &.ibm-logos-grid { align-items: stretch; }
+}
+
+.ibm-logos-grid {
+    align-items: stretch;
+
+    .ibm-logo-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+
+// Logo-Card Link-Styles bereinigen
+.ibm-logo-card,
+.ibm-logo-card:hover,
+.ibm-logo-card:visited {
+    text-decoration: none;
+
+    .ibm-logo-card__name {
+        color: $color-dark;
+        text-decoration: none;
+        font-weight: $font-weight-semibold;
+    }
+
+    .ibm-logo-card__url {
+        color: $color-grey;
+        text-decoration: none;
+        font-size: var(--text-xs);
+    }
+}
+
+// Abstand nach Seitenüberschriften-Block reduzieren
+.page-title-block {
+    margin-bottom: var(--space-md);
+}
+
+.entry-content h2:first-child {
+    margin-top: var(--space-md);
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// FIXES – Logo-Cards + Team-Cards
+// ─────────────────────────────────────────────────────────────────
+
+// Logo-Card Image: keine fixe Höhe
+.ibm-logo-card__image {
+    height: auto !important;
+    padding: var(--space-md) var(--space-sm);
+
+    img {
+        max-height: none;
+        width: 100%;
+        height: auto;
+    }
+}
+
+// Logo-Card Divider: zweifarbig grün + blau
+.ibm-logo-card__divider {
+    height: 3px;
+    background: linear-gradient(90deg, $color-secondary 50%, $color-primary 50%) !important;
+    margin-block: var(--space-xs);
+}
+
+// Logo-Card URL: kursiv
+.ibm-logo-card__url {
+    font-style: italic;
+}
+
+// Logo-Card Schatten: subtiler
+.ibm-logo-card {
+    box-shadow: $shadow-sm;
+    &:hover { box-shadow: $shadow-md; transform: translateY(-2px); }
+}
+
+// Team-Cards (Gutenberg Columns)
+.entry-content .wp-block-column {
+
+    // Name: grüner Unterstrich
+    h3 {
+        color: $color-dark;
+        padding-bottom: var(--space-xs);
+        border-bottom: 2px solid $color-secondary;
+        margin-bottom: var(--space-xs);
+    }
+
+    // Rolle: Primärblau
+    p strong:first-child,
+    .team-role {
+        color: $color-primary;
+    }
+}
+
+
+// Logo-Card: Divider-Linien untereinander + keine Unterstreichungen
+.ibm-logo-card {
+    text-decoration: none !important;
+
+    &__divider {
+        height: 2px;
+        background: $color-secondary !important;
+        margin-bottom: 2px;
+
+        & + .ibm-logo-card__divider,
+        &::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: $color-primary;
+            margin-top: 2px;
+        }
+    }
+
+    &__name,
+    &__url,
+    * {
+        text-decoration: none !important;
+    }
+}
+
+.ibm-logo-card__divider {
+    height: 2px;
+    margin: 0 !important;
+    background: none !important;
+
+    &--green { background: $color-secondary !important; }
+    &--blue  { background: $color-primary !important; margin-top: 2px !important; }
+}
+
+
+// Logo-Card finale Korrekturen
+.ibm-logo-card {
+
+    &__divider--green {
+        display: block;
+        height: 2px;
+        background: $color-secondary !important;
+        margin-bottom: 0 !important;
+    }
+
+    &__divider--blue {
+        display: block;
+        height: 2px;
+        background: $color-primary !important;
+        margin-top: 2px !important;
+        margin-bottom: var(--space-sm) !important;
+    }
+
+    &__name {
+        font-weight: $font-weight-normal !important;
+    }
+
+    &__url {
+        background: $color-gray-100;
+        padding: 4px var(--space-sm);
+        border-radius: $radius-sm;
+        display: block;
+        margin-top: var(--space-xs);
+    }
+}
+
+
+// Logo-Card finale Struktur-Fixes
+.ibm-logo-card {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+
+    // Überflüssige blaue Linie via ::after entfernen
+    &__divider {
+        &::after { display: none !important; }
+        & + & { background: $color-primary !important; }
+    }
+
+    &__image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-md);
+    }
+
+    &__name {
+        min-height: calc(3 * 1.6 * var(--text-sm));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: var(--space-sm) var(--space-md);
+        font-weight: $font-weight-normal !important;
+    }
+
+    &__url {
+        margin-top: auto;
+        background: $color-gray-100;
+        padding: var(--space-xs) var(--space-md);
+        border-radius: 0 0 $radius-base $radius-base;
+        display: block;
+        text-align: center;
+    }
+}
+
+
+.ibm-logo-card__name {
+    min-height: calc(7.2 * var(--text-sm)) !important;
+}
