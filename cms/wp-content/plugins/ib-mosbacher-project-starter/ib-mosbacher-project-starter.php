@@ -71,74 +71,10 @@ function ibm_create_default_fachgebiete() {
 add_action( 'init', 'ibm_create_default_fachgebiete' );
 
 
-// ─────────────────────────────────────────────────────────────────
-// REFERENZKUNDEN CPT
-// Firmen-Logos mit Name + URL auf der Referenzen-Seite
-// ─────────────────────────────────────────────────────────────────
-
-function ibm_register_referenzkunden_cpt() {
-    $labels = array(
-        'name'               => __( 'Referenzkunden', 'ib-mosbacher' ),
-        'singular_name'      => __( 'Referenzkunde', 'ib-mosbacher' ),
-        'menu_name'          => __( 'Referenzkunden', 'ib-mosbacher' ),
-        'add_new'            => __( 'Neu hinzufügen', 'ib-mosbacher' ),
-        'add_new_item'       => __( 'Neuen Referenzkunden hinzufügen', 'ib-mosbacher' ),
-        'edit_item'          => __( 'Referenzkunden bearbeiten', 'ib-mosbacher' ),
-        'not_found'          => __( 'Keine Referenzkunden gefunden', 'ib-mosbacher' ),
-        'not_found_in_trash' => __( 'Keine Referenzkunden im Papierkorb', 'ib-mosbacher' ),
-    );
-
-    $args = array(
-        'labels'        => $labels,
-        'public'        => false,
-        'show_ui'       => true,
-        'show_in_menu'  => true,
-        'show_in_rest'  => true,
-        'menu_icon'     => 'dashicons-building',
-        'menu_position' => 30,
-        'supports'      => array( 'title', 'thumbnail', 'page-attributes' ),
-        'has_archive'   => false,
-        'rewrite'       => false,
-    );
-
-    register_post_type( 'referenzkunde', $args );
-}
-add_action( 'init', 'ibm_register_referenzkunden_cpt' );
+// Referenzkunden: via medialab_logo CPT + logo_kategorie Taxonomie abgedeckt
 
 
-// ─────────────────────────────────────────────────────────────────
-// PARTNER CPT
-// Partnernetzwerk auf der „Über uns"-Seite
-// ─────────────────────────────────────────────────────────────────
-
-function ibm_register_partner_cpt() {
-    $labels = array(
-        'name'               => __( 'Partner', 'ib-mosbacher' ),
-        'singular_name'      => __( 'Partner', 'ib-mosbacher' ),
-        'menu_name'          => __( 'Partner', 'ib-mosbacher' ),
-        'add_new'            => __( 'Neu hinzufügen', 'ib-mosbacher' ),
-        'add_new_item'       => __( 'Neuen Partner hinzufügen', 'ib-mosbacher' ),
-        'edit_item'          => __( 'Partner bearbeiten', 'ib-mosbacher' ),
-        'not_found'          => __( 'Keine Partner gefunden', 'ib-mosbacher' ),
-        'not_found_in_trash' => __( 'Keine Partner im Papierkorb', 'ib-mosbacher' ),
-    );
-
-    $args = array(
-        'labels'        => $labels,
-        'public'        => false,
-        'show_ui'       => true,
-        'show_in_menu'  => true,
-        'show_in_rest'  => true,
-        'menu_icon'     => 'dashicons-networking',
-        'menu_position' => 31,
-        'supports'      => array( 'title', 'thumbnail', 'editor', 'page-attributes' ),
-        'has_archive'   => false,
-        'rewrite'       => false,
-    );
-
-    register_post_type( 'partner', $args );
-}
-add_action( 'init', 'ibm_register_partner_cpt' );
+// Partner: via medialab_logo CPT + logo_kategorie Taxonomie abgedeckt
 
 
 // ─────────────────────────────────────────────────────────────────
@@ -254,3 +190,40 @@ function ibm_floating_cta_buttons() {
     <?php
 }
 add_action( 'wp_footer', 'ibm_floating_cta_buttons' );
+
+// =============================================================================
+// LOGO-KATEGORIE TAXONOMIE (für medialab_logo CPT)
+// Partner-Netzwerk + Referenzkunden in einem CPT, getrennt via Kategorie
+// =============================================================================
+
+function ibm_register_logo_kategorie_taxonomy() {
+    $labels = array(
+        'name'          => __( 'Logo-Kategorien', 'ib-mosbacher' ),
+        'singular_name' => __( 'Logo-Kategorie', 'ib-mosbacher' ),
+        'menu_name'     => __( 'Kategorien', 'ib-mosbacher' ),
+        'all_items'     => __( 'Alle Kategorien', 'ib-mosbacher' ),
+        'add_new_item'  => __( 'Neue Kategorie', 'ib-mosbacher' ),
+    );
+
+    register_taxonomy( 'logo_kategorie', array( 'medialab_logo' ), array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'rewrite'           => false,
+    ) );
+}
+add_action( 'init', 'ibm_register_logo_kategorie_taxonomy' );
+
+function ibm_create_default_logo_kategorien() {
+    if ( get_option( 'ibm_logo_kategorien_created' ) ) return;
+    $kategorien = array( 'Partner-Netzwerk', 'Referenzkunden' );
+    foreach ( $kategorien as $name ) {
+        if ( ! term_exists( $name, 'logo_kategorie' ) ) {
+            wp_insert_term( $name, 'logo_kategorie' );
+        }
+    }
+    update_option( 'ibm_logo_kategorien_created', true );
+}
+add_action( 'init', 'ibm_create_default_logo_kategorien' );
+
