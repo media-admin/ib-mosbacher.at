@@ -191,6 +191,18 @@ function ibm_floating_cta_buttons() {
 }
 add_action( 'wp_footer', 'ibm_floating_cta_buttons' );
 
+// Admin-Liste: medialab_logo nach menu_order sortieren
+add_filter( 'request', function( $vars ) {
+    if ( is_admin() && isset( $vars['post_type'] ) && $vars['post_type'] === 'medialab_logo' ) {
+        if ( empty( $vars['orderby'] ) ) {
+            $vars['orderby'] = 'menu_order';
+            $vars['order']   = 'ASC';
+        }
+    }
+    return $vars;
+} );
+
+
 // =============================================================================
 // SHORTCODES – Logo-Grids nach Kategorie
 // Verwendung: [ibm_logos kategorie="referenzkunden"]
