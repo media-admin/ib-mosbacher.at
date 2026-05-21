@@ -145,6 +145,14 @@
     "file": "assets/nunito-sans-v19-latin_latin-ext-regular.woff2",
     "src": "fonts/nunito-sans/nunito-sans-v19-latin_latin-ext-regular.woff2"
   },
+  "src/images/bg-footer.png": {
+    "file": "images/bg-footer.png",
+    "src": "src/images/bg-footer.png"
+  },
+  "src/images/bg-header.png": {
+    "file": "images/bg-header.png",
+    "src": "src/images/bg-header.png"
+  },
   "src/js/components/accordion.js": {
     "file": "js/chunks/accordion-CP8M2-3_.js",
     "name": "accordion",
@@ -349,7 +357,9 @@
       "assets/nunito-sans-v19-latin_latin-ext-900.woff2",
       "assets/nunito-sans-v19-latin_latin-ext-900.ttf",
       "assets/nunito-sans-v19-latin_latin-ext-900italic.woff2",
-      "assets/nunito-sans-v19-latin_latin-ext-900italic.ttf"
+      "assets/nunito-sans-v19-latin_latin-ext-900italic.ttf",
+      "images/bg-header.png",
+      "images/bg-footer.png"
     ]
   },
   "src/js/utils/sentry.js": {

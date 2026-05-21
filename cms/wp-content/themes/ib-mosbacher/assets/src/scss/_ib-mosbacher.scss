@@ -2283,3 +2283,125 @@ h2.wp-block-heading {
     width: auto !important;
     max-width: none !important;
 }
+
+
+// Seitenhintergrund weiß, Header + Footer mit PNG-Hintergrund
+body {
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+.site-header {
+    background-image: url('../images/bg-header.png') !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+}
+
+.site-footer {
+    background-image: url('../images/bg-footer.png') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
+
+
+// Hero Image: Container-Breite statt fullwidth
+.hero-image {
+    max-width: 1200px !important;
+    margin-inline: auto !important;
+    width: 100% !important;
+}
+
+
+// Header-Hintergrund auf body, nicht auf .site-header
+body {
+    background-image: url('../images/bg-header.png') !important;
+    background-size: 100% auto !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+}
+
+.site-header {
+    background-image: none !important;
+    background: transparent !important;
+}
+
+// Header-Navigation auf Container-Breite begrenzen
+.site-navigation {
+    max-width: 1200px !important;
+    margin-inline: auto !important;
+    padding-inline: var(--container-padding) !important;
+}
+
+
+// site-navigation bereinigt
+.site-navigation {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding-inline: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+
+.hero-image {
+    padding-inline: var(--container-padding) !important;
+}
+
+
+.hero-image {
+    width: calc(100% - 2 * var(--container-padding)) !important;
+    padding-inline: 0 !important;
+}
+
+
+.hero-image__img,
+.hero-image picture {
+    width: calc(100% - var(--container-padding)) !important;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    margin: auto !important;
+}
+
+
+.floating-cta {
+    gap: 10px !important;
+    top: 33% !important;
+    right: 0 !important;
+    transform: translateY(-33%) !important;
+}
+
+
+.ajax-filters__group {
+    margin-bottom: 5px;
+}
+
+
+.filter-tab {
+    margin-bottom: 5px !important;
+}
+
+
+.ibm-projects-grid {
+    align-items: stretch !important;
+
+    .project-card {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+
+        .project-card__content {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .project-card__category {
+            margin-top: auto !important;
+        }
+    }
+}

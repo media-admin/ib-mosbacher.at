@@ -35,7 +35,7 @@ $classes = [
 ];
 ?>
 
-<section class="<?php echo esc_attr(implode(' ', $classes)); ?>"
+<section class="<?php echo esc_attr(implode(' ', $classes)); ?> container"
          aria-label="<?php echo esc_attr($hero['title']); ?>">
 
     <?php /* ── Bild ──────────────────────────────────────────────────────────── */ ?>
