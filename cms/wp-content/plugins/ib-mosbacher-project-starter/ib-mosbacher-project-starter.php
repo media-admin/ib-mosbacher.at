@@ -396,3 +396,64 @@ function ibm_create_default_logo_kategorien() {
 }
 add_action( 'init', 'ibm_create_default_logo_kategorien' );
 
+
+// =============================================================================
+// SHORTCODE – Projekte Grid mit AJAX-Filter
+// Verwendung: [ibm_projekte]
+// =============================================================================
+
+function ibm_projekte_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'per_page' => 12,
+        'columns'  => 4,
+    ), $atts, 'ibm_projekte' );
+
+    $fachgebiete = get_terms( array(
+        'taxonomy'   => 'projekt_fachgebiet',
+        'hide_empty' => true,
+        'orderby'    => 'name',
+    ) );
+
+    ob_start();
+    ?>
+    <div class="ajax-filters ibm-projekte-filter"
+         id="ibm-projekte"
+         data-post-type="project"
+         data-posts-per-page="<?php echo esc_attr( $atts['per_page'] ); ?>"
+         data-template="project"
+         data-grid-columns="<?php echo esc_attr( $atts['columns'] ); ?>">
+
+        <div class="ajax-filters__sidebar ibm-filter-tabs">
+            <div class="ajax-filters__group" data-taxonomy="projekt_fachgebiet">
+                <button class="ajax-filters__taxonomy-button filter-tab is-active"
+                        data-taxonomy="projekt_fachgebiet"
+                        data-term="">
+                    Alle Projekte
+                </button>
+                <?php if ( ! is_wp_error( $fachgebiete ) ) : foreach ( $fachgebiete as $fachgebiet ) : ?>
+                <button class="ajax-filters__taxonomy-button filter-tab"
+                        data-taxonomy="projekt_fachgebiet"
+                        data-term="<?php echo esc_attr( $fachgebiet->slug ); ?>">
+                    <?php echo esc_html( $fachgebiet->name ); ?>
+                </button>
+                <?php endforeach; endif; ?>
+            </div>
+        </div>
+
+        <div class="ajax-filters__results">
+            <div class="ajax-filters__grid ibm-projects-grid"
+                 data-columns="<?php echo esc_attr( $atts['columns'] ); ?>">
+            </div>
+            <div class="ajax-filters__loading" style="display:none;">
+                <span>Lade Projekte...</span>
+            </div>
+            <div class="ajax-filters__no-results" style="display:none;">
+                <p>Keine Projekte gefunden.</p>
+            </div>
+        </div>
+
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'ibm_projekte', 'ibm_projekte_shortcode' );

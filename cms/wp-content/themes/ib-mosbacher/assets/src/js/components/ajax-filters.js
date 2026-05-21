@@ -434,7 +434,8 @@ export default class AjaxFilters {
         <h3 class="project-card__title">
           <a href="${post.url}">${this.esc(post.title)}</a>
         </h3>
-        ${post.client ? `<p class="project-card__client">Client: ${this.esc(post.client)}</p>` : ''}
+        ${post.client ? `<p class="project-card__client">${this.esc(post.client)}</p>` : ''}
+        ${post.category ? `<span class="project-card__category">${this.esc(post.category)}</span>` : ''}
       </div>
     `;
     return article;

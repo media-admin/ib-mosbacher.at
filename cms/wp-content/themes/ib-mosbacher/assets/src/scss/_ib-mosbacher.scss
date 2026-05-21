@@ -1702,3 +1702,377 @@ h2.wp-block-heading {
         display: block;
     }
 }
+
+
+.filter-tab.is-active {
+    background: $color-primary !important;
+    border-color: $color-primary !important;
+    color: $color-white !important;
+}
+
+
+// Ajax-Filter Layout: Sidebar über Grid, nicht daneben
+.ibm-projekte-filter.ajax-filters {
+    display: block !important;
+
+    .ajax-filters__sidebar {
+        width: 100% !important;
+        margin-bottom: var(--space-lg);
+    }
+
+    .ajax-filters__results {
+        width: 100% !important;
+    }
+}
+
+
+.entry-content h2 {
+    margin-top: var(--space-xl) !important;
+    margin-bottom: var(--space-sm) !important;
+    padding-bottom: calc(var(--space-xs) / 2) !important;
+}
+
+
+// Runde Ecken entfernen – Projekt-Cards + Logo-Cards
+.project-card,
+.ibm-logo-card {
+    border-radius: 0 !important;
+}
+
+
+.ajax-filters__sidebar.ibm-filter-tabs .filter-tab {
+    border-radius: 0 !important;
+}
+
+
+.ajax-filters__sidebar {
+    border-radius: 0 !important;
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PROJEKT-CARDS + FILTER – finale Korrekturen
+// ─────────────────────────────────────────────────────────────────
+
+// Filter-Sidebar: kein Box-Hintergrund
+.ajax-filters__sidebar.ibm-filter-tabs,
+.ibm-projekte-filter .ajax-filters__sidebar {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+// Grid: volle Breite, 4 Spalten
+.ibm-projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: var(--space-md) !important;
+    width: 100% !important;
+
+    @media (max-width: 992px) { grid-template-columns: repeat(2, 1fr) !important; }
+    @media (max-width: 576px) { grid-template-columns: 1fr !important; }
+}
+
+// Projekt-Card
+.project-card {
+    border-radius: 0 !important;
+
+    &__image {
+        aspect-ratio: 1 / 1 !important;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        border-top: 2px solid #7AB32E !important;
+        padding: var(--space-sm) !important;
+    }
+
+    &__title {
+        font-style: italic !important;
+        color: #1976B0 !important;
+        margin-bottom: 4px !important;
+
+        a {
+            font-style: italic !important;
+            color: #1976B0 !important;
+            text-decoration: none !important;
+        }
+    }
+
+    &__client {
+        font-size: var(--text-sm) !important;
+        color: #4a4a4a !important;
+        margin: 0 0 2px !important;
+    }
+
+    &__category {
+        font-size: var(--text-xs) !important;
+        color: #888 !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+}
+
+
+// Filter-Tabs: Großbuchstaben + Styling
+.ibm-filter-tabs .filter-tab {
+    text-transform: uppercase !important;
+    background: $color-white !important;
+    border: 1px solid $color-secondary !important;
+    color: $color-dark !important;
+    border-radius: 0 !important;
+
+    &.is-active,
+    &:hover {
+        background: $color-primary !important;
+        border-color: $color-primary !important;
+        color: $color-white !important;
+    }
+}
+
+
+// Projekt-Card Content – finale Typografie
+.project-card {
+
+    &__title a,
+    &__title {
+        font-weight: 800 !important;
+        font-style: italic !important;
+        line-height: 1.5 !important;
+        letter-spacing: -0.011em !important;
+        color: #1976B0 !important;
+        text-decoration: none !important;
+    }
+
+    &__client {
+        min-height: calc(2 * 1.6 * var(--text-sm));
+        padding-block: var(--space-sm) !important;
+        margin: 0 !important;
+    }
+
+    &__category {
+        display: block !important;
+        background: $color-gray-100 !important;
+        margin: 0 calc(-1 * var(--space-sm)) calc(-1 * var(--space-sm)) !important;
+        padding: var(--space-xs) var(--space-sm) !important;
+        font-size: var(--text-xs) !important;
+        color: $color-grey !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.03em !important;
+    }
+}
+
+
+.project-card__category {
+    border-radius: 0 !important;
+    font-size: 0.65rem !important;
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// PROJEKT-DETAILSEITE
+// ─────────────────────────────────────────────────────────────────
+
+.project-detail {
+
+    &__intro {
+        font-size: var(--text-lg);
+        color: $color-grey-dark;
+        margin-block: var(--space-md);
+    }
+
+    &__eckdaten-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        margin-block: var(--space-lg);
+
+        @media (max-width: 768px) { grid-template-columns: 1fr; }
+    }
+
+    &__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__meta-title {
+        font-size: var(--text-xl);
+        font-weight: 800;
+        font-style: italic;
+        color: $color-primary;
+        margin: 0 0 var(--space-xs);
+    }
+
+    &__meta-divider {
+        height: 2px;
+        background: $color-secondary;
+        margin-bottom: var(--space-md);
+    }
+
+    &__meta-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: var(--space-sm);
+        padding-block: var(--space-xs);
+        border-bottom: 1px solid $color-grey-light;
+
+        @media (max-width: 576px) { grid-template-columns: 1fr; }
+    }
+
+    &__meta-label {
+        font-size: var(--text-sm);
+        font-weight: $font-weight-semibold;
+        color: $color-grey-dark;
+    }
+
+    &__meta-value {
+        font-size: var(--text-sm);
+        color: $color-dark;
+    }
+
+    &__back {
+        margin-block: var(--space-2xl) var(--space-lg);
+    }
+}
+
+
+// Projekt-Navigation (Voriges / Nächstes)
+.project-detail {
+
+    &__back--top {
+        margin-block: var(--space-md) 0;
+    }
+
+    &__nav {
+        margin-block: var(--space-2xl) var(--space-lg);
+        border-top: 1px solid $color-grey-light;
+        padding-top: var(--space-lg);
+    }
+
+    &__nav-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-md);
+    }
+
+    &__nav-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        text-decoration: none;
+        padding: var(--space-md);
+        border: 1px solid $color-grey-light;
+        max-width: 45%;
+        transition: $transition-fast;
+
+        &:hover {
+            border-color: $color-primary;
+            background: rgba($color-primary, 0.03);
+        }
+
+        &--next {
+            text-align: right;
+            margin-left: auto;
+        }
+
+        &--disabled {
+            visibility: hidden;
+        }
+    }
+
+    &__nav-arrow {
+        font-size: var(--text-xl);
+        color: $color-primary;
+        font-weight: 700;
+    }
+
+    &__nav-label {
+        font-size: var(--text-xs);
+        color: $color-grey;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &__nav-title {
+        font-size: var(--text-sm);
+        font-weight: $font-weight-semibold;
+        color: $color-primary;
+    }
+}
+
+
+.project-detail__content.entry-content h2 {
+    border-bottom: none !important;
+}
+
+
+.section-heading {
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+}
+
+
+// ─────────────────────────────────────────────────────────────────
+// HEADER – finale Anpassungen laut Figma
+// ─────────────────────────────────────────────────────────────────
+
+.site-header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding-block: var(--space-md) !important;
+}
+
+// Logo größer
+.site-logo__img--desktop {
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain;
+    display: block;
+    max-width: none !important;
+    object-fit: contain;
+    display: block;
+}
+
+// Navigation
+.main-navigation a {
+    font-weight: 700 !important;
+    letter-spacing: -0.011em !important;
+    color: $color-primary !important;
+    font-size: var(--text-base) !important;
+
+    // Grüner Unterstrich statt blauer
+    &::after {
+        background: $color-secondary !important;
+    }
+}
+
+// Aktiver Menüpunkt: blauer gefüllter Block
+.main-navigation .current-menu-item > a,
+.main-navigation .current-page-ancestor > a {
+    background: $color-primary !important;
+    color: $color-white !important;
+    padding-inline: var(--space-sm) !important;
+    padding-block: 6px !important;
+
+    &::after { display: none !important; }
+}
+
+
+// Lightbox Pfeil-Zentrierung
+.lightbox__prev,
+.lightbox__next {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    bottom: auto !important;
+}
