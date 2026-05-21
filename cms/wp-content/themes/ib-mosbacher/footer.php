@@ -51,7 +51,7 @@
             <!-- Navigation -->
             <?php if ( has_nav_menu('primary') ) :
                 wp_nav_menu(array(
-                    'theme_location' => 'primary',
+                    'theme_location' => 'footer',
                     'menu_class'     => 'site-footer__nav-list',
                     'container'      => 'nav',
                     'container_class'=> 'site-footer__nav',
@@ -68,7 +68,7 @@
 
             <?php if ( has_nav_menu('footer') ) :
                 wp_nav_menu([
-                    'theme_location' => 'footer',
+                    'theme_location' => 'footer-legal',
                     'menu_class'     => 'site-footer__legal-list',
                     'container'      => 'nav',
                     'container_class'=> 'site-footer__legal',

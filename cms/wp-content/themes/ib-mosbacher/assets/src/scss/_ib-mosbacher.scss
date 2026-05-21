@@ -2076,3 +2076,210 @@ h2.wp-block-heading {
     transform: translateY(-50%) !important;
     bottom: auto !important;
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// FOOTER – finale Anpassungen
+// ─────────────────────────────────────────────────────────────────
+
+// Partner-Logos größer
+.site-footer__logos {
+    img { height: 56px !important; }
+    .site-footer__logo { height: 72px !important; }
+    .site-footer__partner-logos { height: 56px !important; }
+}
+
+// Weniger Abstand zwischen Logo-Leiste und Hauptbereich
+.site-footer__logos {
+    padding-bottom: var(--space-md) !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+// Footer-Navigation: 2-spaltig
+.site-footer__nav-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px var(--space-lg) !important;
+}
+
+// Footer-Bottom: einzeilig
+.site-footer__bottom {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+
+    @media (max-width: 768px) {
+        flex-direction: column !important;
+    }
+}
+
+// Divider: grün + blau untereinander statt nebeneinander
+.site-footer__divider {
+    height: 8px !important;
+    background: none !important;
+    border-top: 4px solid #7AB32E;
+    border-bottom: 4px solid #1976B0;
+}
+
+// Back-to-Top: eckig
+.back-to-top {
+    border-radius: 0 !important;
+}
+
+
+// Footer SOLL-Anpassungen
+.site-footer__logo { height: 100px !important; width: auto !important; }
+.site-footer__partner-logos { height: 80px !important; width: auto !important; }
+
+.site-footer__contact a[href^="tel"] { font-weight: 700 !important; }
+
+.site-footer__nav-list {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-md) var(--space-xl) !important;
+    
+    a { white-space: nowrap !important; }
+}
+
+// Footer-Bottom: alles zentriert untereinander
+.site-footer__bottom {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: var(--space-sm) !important;
+}
+
+.site-footer__legal ul {
+    justify-content: center !important;
+    gap: var(--space-xl) !important;
+}
+
+// Trennlinie VOR Copyright
+.site-footer__bottom {
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        border-top: 3px solid #7AB32E;
+        border-bottom: 3px solid #1976B0;
+        padding-top: 3px;
+        margin-bottom: var(--space-md);
+    }
+}
+
+// Haupt-Divider am Ende ausblenden (wird durch ::before ersetzt)
+.site-footer__divider { display: none !important; }
+
+
+.site-footer__inner { border-bottom: none !important; }
+.site-footer__credit { border-top: none !important; }
+
+
+// Footer Logos: volle Breite
+.site-footer__logos {
+    justify-content: space-between !important;
+    width: 100% !important;
+
+    .site-footer__logo { height: 80px !important; }
+    .site-footer__partner-logos {
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+}
+}
+
+// Footer-Bottom Schriftfarben
+.site-footer__legal a {
+    color: $color-primary !important;
+    font-size: var(--text-base) !important;
+}
+
+.site-footer__copyright {
+    color: $color-grey-dark !important;
+    font-size: var(--text-sm) !important;
+}
+
+.site-footer__credit,
+.site-footer__credit a {
+    color: $color-grey !important;
+    font-size: var(--text-sm) !important;
+}
+
+// Trennlinie direkt vor Impressum (in ::before)
+.site-footer__bottom {
+    padding-top: 0 !important;
+    gap: var(--space-xs) !important;
+}
+
+
+.site-footer__bottom::before {
+    content: "" !important;
+    width: 100% !important;
+    display: block !important;
+    border-top: 4px solid #7AB32E !important;
+    border-bottom: 4px solid #1976B0 !important;
+    padding-top: 8px !important;
+    margin-bottom: var(--space-md) !important;
+}
+
+
+.site-footer__contact-title,
+.site-footer__address-title {
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.02em !important;
+    font-size: var(--text-lg) !important;
+}
+
+
+.site-footer__inner {
+    align-items: start !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr !important;
+}
+
+
+.site-footer__logo {
+    max-height: none !important;
+}
+
+
+.site-footer__logos .site-footer__logo {
+    height: auto !important;
+}
+
+.site-footer__logos img {
+    height: auto !important;
+}
+
+
+.site-footer__nav-list a,
+.site-footer__legal ul a {
+    font-weight: 600 !important;
+    letter-spacing: -0.011em !important;
+}
+
+
+.site-footer__logo {
+    max-width: 260px !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.site-footer__partner-logos {
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+
+.site-footer__logo {
+    max-width: 260px !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.site-footer__partner-logos {
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+}
