@@ -1600,3 +1600,105 @@ h2.wp-block-heading {
 .ibm-logo-card__name {
     font-weight: 800 !important;
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// PROJEKTE FILTER + GRID
+// ─────────────────────────────────────────────────────────────────
+
+.ibm-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+
+    .filter-tab {
+        padding: 6px var(--space-md);
+        border: 1px solid $color-grey-light;
+        border-radius: 0;
+        background: $color-white;
+        font-size: var(--text-sm);
+        font-family: $font-primary;
+        font-weight: $font-weight-medium;
+        color: $color-grey-dark;
+        cursor: pointer;
+        transition: $transition-fast;
+        white-space: nowrap;
+
+        &:hover,
+        &.active {
+            background: $color-primary;
+            border-color: $color-primary;
+            color: $color-white;
+        }
+    }
+}
+
+.ibm-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+
+    @media (max-width: 992px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 576px) { grid-template-columns: 1fr; }
+}
+
+// Projekt-Card
+.project-card {
+    background: $color-white;
+    border-radius: $radius-base;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    transition: $transition-base;
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+        box-shadow: $shadow-lg;
+        transform: translateY(-2px);
+    }
+
+    &__image {
+        aspect-ratio: 4 / 3;
+        background: $color-grey-light;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        &:hover img { transform: scale(1.04); }
+    }
+
+    &__content {
+        padding: var(--space-sm);
+        border-top: 2px solid $color-secondary;
+    }
+
+    &__title {
+        font-size: var(--text-base);
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+        margin: 0 0 4px;
+        text-decoration: none;
+
+        a {
+            color: $color-primary;
+            text-decoration: none;
+        }
+    }
+
+    &__meta {
+        font-size: var(--text-sm);
+        color: $color-grey-dark;
+    }
+
+    &__category {
+        font-size: var(--text-xs);
+        color: $color-grey;
+        display: block;
+    }
+}

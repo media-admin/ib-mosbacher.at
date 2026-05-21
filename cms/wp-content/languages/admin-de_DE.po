@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.9.x - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-19 21:24:53+0000\n"
+"PO-Revision-Date: 2026-05-20 21:50:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1078,10 +1078,6 @@ msgstr "Theme hochladen"
 msgid "Installing theme from uploaded file: %s"
 msgstr "Das Theme wird von der hochgeladenen Datei %s installiert"
 
-#: wp-admin/upgrade.php:93
-msgid "Your WordPress database is already up to date!"
-msgstr "Deine WordPress-Datenbank ist aktuell!"
-
 #: wp-admin/upload.php:62 wp-admin/upload.php:116
 msgid "Media file permanently deleted."
 msgstr "Die Mediendatei wurde endgültig gelöscht."
@@ -1520,17 +1516,9 @@ msgstr "Keine Aktualisierung erforderlich"
 msgid "Database Update Required"
 msgstr "Datenbank-Aktualisierung erforderlich"
 
-#: wp-admin/upgrade.php:161 wp-admin/network/upgrade.php:145
-msgid "The database update process may take a little while, so please be patient."
-msgstr "Die Aktualisierung der Datenbank könnte etwas dauern, bitte hab einen Moment Geduld."
-
 #: wp-admin/upgrade.php:162
 msgid "Update WordPress Database"
 msgstr "WordPress-Datenbank aktualisieren"
-
-#: wp-admin/upgrade.php:172
-msgid "Update Complete"
-msgstr "Aktualisierung erfolgreich"
 
 #: wp-admin/upgrade.php:173
 msgid "Your WordPress database has been successfully updated!"
@@ -5234,6 +5222,18 @@ msgstr "Um einen individuellen Link hinzuzufügen, <strong>erweitere den Abschni
 #: wp-admin/nav-menus.php:743
 msgid "<strong>Clicking the arrow to the right of any menu item</strong> in the editor will reveal a standard group of settings. Additional settings such as link target, CSS classes, link relationships, and link descriptions can be enabled and disabled via the Screen Options tab."
 msgstr "<strong>Durch Anklicken des Pfeils rechts von jedem Menüeintrag</strong> im Editor wird eine Gruppe üblicher Einstellungen eingeblendet. Zusätzliche Einstellungen wie zum Beispiel Linkziele, CSS-Klassen, Linkbeziehungen und Linkbeschreibungen können über den Tab „Ansicht anpassen“ aktiviert und deaktiviert werden."
+
+#: wp-admin/upgrade.php:161 wp-admin/network/upgrade.php:145
+msgid "The database update process may take a little while, so please be patient."
+msgstr "Die Aktualisierung der Datenbank kann eine Weile dauern. Bitte habe etwas Geduld."
+
+#: wp-admin/upgrade.php:172
+msgid "Update Complete"
+msgstr "Aktualisierung abgeschlossen"
+
+#: wp-admin/upgrade.php:93
+msgid "Your WordPress database is already up to date!"
+msgstr "Deine WordPress-Datenbank ist bereits auf dem neuesten Stand!"
 
 #: wp-admin/includes/media.php:2839 wp-admin/includes/nav-menu.php:545
 #: wp-admin/includes/nav-menu.php:917
