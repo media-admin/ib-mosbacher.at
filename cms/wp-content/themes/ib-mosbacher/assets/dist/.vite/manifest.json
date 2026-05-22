@@ -160,7 +160,7 @@
     "isDynamicEntry": true
   },
   "src/js/components/ajax-filters.js": {
-    "file": "js/chunks/ajax-filters-CkI_CeqV.js",
+    "file": "js/chunks/ajax-filters-weMrcE9u.js",
     "name": "ajax-filters",
     "src": "src/js/components/ajax-filters.js",
     "isDynamicEntry": true
@@ -232,12 +232,13 @@
     ]
   },
   "src/js/components/ml-logo-slider.js": {
-    "file": "js/chunks/ml-logo-slider-DTXRjJO-.js",
+    "file": "js/chunks/ml-logo-slider-ubAn90pl.js",
     "name": "ml-logo-slider",
     "src": "src/js/components/ml-logo-slider.js",
     "isDynamicEntry": true,
     "imports": [
-      "_autoplay-dfYcfB9Q.js"
+      "_autoplay-dfYcfB9Q.js",
+      "_pagination-DJKMkwjC.js"
     ]
   },
   "src/js/components/ml-slider.js": {

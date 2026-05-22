@@ -73,6 +73,17 @@ export default class AjaxFilters {
     this.setupSortFilter(container);
     this.setupResetButton(container);
     
+    // URL-Parameter → Vorfilter setzen
+    const urlParams = new URLSearchParams(window.location.search);
+    const fachgebiet = urlParams.get('fachgebiet');
+    if (fachgebiet) {
+      container.activeFilters.taxonomies['projekt_fachgebiet'] = [fachgebiet];
+      const btn = container.querySelector(
+        `.ajax-filters__taxonomy-button[data-taxonomy="projekt_fachgebiet"][data-term="${fachgebiet}"]`
+      );
+      if (btn) btn.classList.add('is-active');
+    }
+
     console.log(`🔄 [${container.id}] Loading initial results for: ${settings.postType}`);
     this.loadResults(container);
   }
@@ -620,3 +631,18 @@ export default class AjaxFilters {
     return div.innerHTML;
   }
 }
+
+
+// URL-Parameter → Filter vorselektieren
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const fachgebiet = params.get('fachgebiet');
+
+    if (!fachgebiet) return;
+
+    const btn = document.querySelector(
+        `.ajax-filters__taxonomy-button[data-taxonomy="projekt_fachgebiet"][data-term="${fachgebiet}"]`
+    );
+
+    if (btn) btn.click();
+});

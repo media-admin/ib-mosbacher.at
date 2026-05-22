@@ -213,6 +213,7 @@ function ibm_logos_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'kategorie' => '',
         'columns'   => 4,
+        'layout'    => 'grid',
     ), $atts, 'ibm_logos' );
 
     $query_args = array(
@@ -237,38 +238,66 @@ function ibm_logos_shortcode( $atts ) {
     if ( empty( $logos ) ) return '';
 
     $columns = intval( $atts['columns'] );
-    $class   = 'ibm-logos-grid ibm-logos-grid--cols-' . $columns;
-
+    $layout  = $atts['layout'];
     ob_start();
-    echo '<div class="' . esc_attr( $class ) . '">';
 
-    foreach ( $logos as $logo ) {
-        $image = get_field( 'logo_cpt_image', $logo->ID );
-        $name  = get_field( 'logo_cpt_name',  $logo->ID ) ?: get_the_title( $logo );
-        $url   = get_field( 'logo_cpt_url',   $logo->ID ) ?: '';
-
-        if ( ! $image ) continue;
-
-        echo '<div class="ibm-logo-card">';
-
-        if ( $url ) echo '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer">';
-
-        echo '<div class="ibm-logo-card__image">';
-        echo '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy">';
-        echo '</div>';
-
-        echo '<div class="ibm-logo-card__divider ibm-logo-card__divider--green"></div><div class="ibm-logo-card__divider ibm-logo-card__divider--blue"></div>';
-        echo '<p class="ibm-logo-card__name">' . esc_html( $name ) . '</p>';
-
-        if ( $url ) {
-            echo '<p class="ibm-logo-card__url">' . esc_html( $url ) . '</p>';
-            echo '</a>';
+    if ( $layout === 'slider' ) {
+        $swiper_config = json_encode( array(
+            'slidesPerView'  => 2,
+            'spaceBetween'   => 32,
+            'loop'           => true,
+            'autoplay'       => array( 'delay' => 6000, 'disableOnInteraction' => false ),
+            'navigation'     => array( 'nextEl' => '.swiper-button-next', 'prevEl' => '.swiper-button-prev' ),
+            'pagination'     => array( 'el' => '.swiper-pagination', 'clickable' => true ),
+            'breakpoints'    => array(
+                '640'  => array( 'slidesPerView' => 3 ),
+                '1024' => array( 'slidesPerView' => 4 ),
+            ),
+        ) );
+        echo '<div class="ml-logo-slider">';
+        echo '<div class="ml-logo-slider__swiper swiper" data-swiper=\'' . $swiper_config . '\'>';
+        echo '<div class="swiper-wrapper">';
+        foreach ( $logos as $logo ) {
+            $image = get_field( 'logo_cpt_image', $logo->ID );
+            $name  = get_field( 'logo_cpt_name',  $logo->ID ) ?: get_the_title( $logo );
+            $url   = get_field( 'logo_cpt_url',   $logo->ID ) ?: '';
+            if ( ! $image ) continue;
+            echo '<div class="swiper-slide ml-logo-slider__slide">';
+            if ( $url ) echo '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer">';
+            echo '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy">';
+            if ( $url ) echo '</a>';
+            echo '</div>';
         }
+        echo '</div>';
+        echo '<div class="swiper-button-prev"></div>';
+        echo '<div class="swiper-button-next"></div>';
+        echo '<div class="swiper-pagination"></div>';
+        echo '</div></div>';
 
+    } else {
+        $class = 'ibm-logos-grid ibm-logos-grid--cols-' . $columns;
+        echo '<div class="' . esc_attr( $class ) . '">';
+        foreach ( $logos as $logo ) {
+            $image = get_field( 'logo_cpt_image', $logo->ID );
+            $name  = get_field( 'logo_cpt_name',  $logo->ID ) ?: get_the_title( $logo );
+            $url   = get_field( 'logo_cpt_url',   $logo->ID ) ?: '';
+            if ( ! $image ) continue;
+            echo '<div class="ibm-logo-card">';
+            if ( $url ) echo '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer">';
+            echo '<div class="ibm-logo-card__image">';
+            echo '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy">';
+            echo '</div>';
+            echo '<div class="ibm-logo-card__divider ibm-logo-card__divider--green"></div><div class="ibm-logo-card__divider ibm-logo-card__divider--blue"></div>';
+            echo '<p class="ibm-logo-card__name">' . esc_html( $name ) . '</p>';
+            if ( $url ) {
+                echo '<p class="ibm-logo-card__url">' . esc_html( $url ) . '</p>';
+                echo '</a>';
+            }
+            echo '</div>';
+        }
         echo '</div>';
     }
 
-    echo '</div>';
     return ob_get_clean();
 }
 add_shortcode( 'ibm_logos', 'ibm_logos_shortcode' );

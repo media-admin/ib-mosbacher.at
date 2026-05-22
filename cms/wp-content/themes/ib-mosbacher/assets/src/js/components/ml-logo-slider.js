@@ -9,7 +9,7 @@
  */
 
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 export default class MLLogoSlider {
     constructor() {
@@ -30,7 +30,7 @@ export default class MLLogoSlider {
                 return;
             }
 
-            config.modules = [ Autoplay ];
+            config.modules = [ Autoplay, Navigation, Pagination ];
 
             try {
                 new Swiper( el, config );
