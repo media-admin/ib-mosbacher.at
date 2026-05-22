@@ -2028,15 +2028,32 @@ h2.wp-block-heading {
     padding-block: var(--space-md) !important;
 }
 
-// Logo größer
+// Logo – Desktop/Mobile Show/Hide
 .site-logo__img--desktop {
+    display: block;
     height: auto !important;
     max-width: none !important;
     object-fit: contain;
-    display: block;
-    max-width: none !important;
-    object-fit: contain;
-    display: block;
+}
+.site-logo__img--mobile {
+    display: none;
+}
+@include respond-below('md') {
+    .site-logo img {
+        height: auto !important;
+        width: auto !important;
+    }
+    .site-logo__img--desktop {
+        display: none !important;
+    }
+    .site-logo__img--mobile {
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain;
+    }
 }
 
 // Navigation
@@ -2340,6 +2357,11 @@ body {
     justify-content: space-between !important;
     align-items: center !important;
 }
+@include respond-below('md') {
+    .site-navigation {
+        padding-inline: var(--container-padding) !important;
+    }
+}
 
 
 .hero-image {
@@ -2353,6 +2375,7 @@ body {
 }
 
 
+
 .hero-image__img,
 .hero-image picture {
     width: calc(100% - var(--container-padding)) !important;
@@ -2360,6 +2383,12 @@ body {
     position: absolute;
     inset: 0;
     margin: auto !important;
+}
+@include respond-below('md') {
+    .hero-image__img,
+    .hero-image picture {
+        width: 100% !important;
+    }
 }
 
 
@@ -2567,4 +2596,59 @@ body {
     .swiper-pagination-bullet:hover {
         background: $color-primary !important;
     }
+}
+
+// ── Footer Mobile Fixes ──────────────────────────────────────────
+@include respond-below('md') {
+    .site-footer__credit {
+        width: 60% !important;
+    }
+    .site-footer__logos {
+        flex-wrap: nowrap !important;
+        flex-direction: column !important;
+    }
+    .site-footer__logos .site-footer__partner-logos {
+        width: 100% !important;
+    }
+    .site-footer__inner .site-footer__address,
+    .site-footer__inner .site-footer__contact {
+        width: 100% !important;
+    }
+    .site-footer__inner {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto !important;
+        width: 100% !important;
+    }
+}
+// ── Mobile Menu Fixes ────────────────────────────────────────────
+@include respond-below('md') {
+    // Burger Button – kein border-radius
+    .mobile-menu-toggle {
+        border-radius: 0 !important;
+    }
+    // Mobile Menü – unterhalb des Headers beginnen
+    .mobile-menu {
+        top: var(--header-height-actual, 120px) !important;
+        height: calc(100vh - var(--header-height-actual, 120px)) !important;
+        padding-top: var(--space-xl) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(8px) !important;
+    }
+}
+// ── Back-to-Top Button ───────────────────────────────────────────
+.back-to-top {
+    background: #1976B0 !important;
+    border: 2px solid #fff !important;
+    color: #7AB32E !important;
+    svg polyline {
+        stroke: #7AB32E !important;
+    }
+}
+.back-to-top:hover {
+    background: #125d8a !important;
+}
+// Cookie Button
+.cookie-settings-btn {
+    background: #1976B0 !important;
 }

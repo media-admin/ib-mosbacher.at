@@ -178,3 +178,11 @@ if ( ! function_exists('medialab_toggle') ) {
     }
 }
 
+
+// Mobile Logo Width – dynamisch aus ACF
+add_action('wp_head', function() {
+    $w = function_exists('get_field') ? intval(get_field('logo_mobile_width', 'option')) : 120;
+    if ($w > 0) {
+        echo '<style>@media(max-width:767px){.site-logo .site-logo__img--mobile{width:' . $w . 'px!important;max-width:' . $w . 'px!important;height:auto!important}}</style>';
+    }
+});

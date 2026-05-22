@@ -178,3 +178,13 @@ if (document.readyState === 'loading') {
 } else {
   initApp();
 }
+// Header-Höhe als CSS Variable setzen (für Mobile Menu top)
+function updateHeaderHeight() {
+    const header = document.querySelector('.site-header');
+    if (header) {
+        const h = header.getBoundingClientRect().height;
+        document.documentElement.style.setProperty('--header-height-actual', h + 'px');
+    }
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
