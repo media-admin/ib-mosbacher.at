@@ -1169,7 +1169,7 @@ body {
         font-weight: $font-weight-semibold;
         color: $color-dark;
         margin-top: var(--space-lg);
-        margin-bottom: 0;
+        margin-bottom: var(--space-md);
         padding-bottom: var(--space-xs);
         border-bottom: 2px solid $color-secondary;
     }
