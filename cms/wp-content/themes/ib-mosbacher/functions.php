@@ -186,3 +186,12 @@ add_action('wp_head', function() {
         echo '<style>@media(max-width:767px){.site-logo .site-logo__img--mobile{width:' . $w . 'px!important;max-width:' . $w . 'px!important;height:auto!important}}</style>';
     }
 });
+
+
+// Body-Klasse für Impressum-Seite (Slug-basiert → Starter Kit kompatibel)
+add_filter('body_class', function(array $classes): array {
+    if (is_page('impressum')) {
+        $classes[] = 'impressum-page';
+    }
+    return $classes;
+});

@@ -17,7 +17,7 @@ body {
     radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.6) 0%, transparent 70%),
     linear-gradient(180deg, #d4ecf7 0%, #e8f5fb 40%, #f0f9fd 70%, #ffffff 100%);
   background-attachment: fixed;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: $font-primary;
   color: var(--color-text);
 }
 
@@ -2651,4 +2651,34 @@ body {
 // Cookie Button
 .cookie-settings-btn {
     background: #1976B0 !important;
+}
+
+// Hero: max-height auf Desktop
+@media (min-width: 768px) {
+    .hero-image,
+    .hero-image picture,
+    .hero-image__img {
+        max-height: 440px;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+
+
+
+
+// ── Impressum: Tabellen-Titelspalte ──────────────────────────────────────────
+.impressum-page .wp-block-table {
+    table {
+        table-layout: auto !important; // JS misst korrekt nur ohne fixed-layout
+    }
+
+    td:first-child {
+        background-color: rgba(25, 118, 176, 0.75);
+        color: #fff;
+        font-weight: 600;
+        white-space: nowrap;
+        padding-right: var(--space-sm);
+    }
 }

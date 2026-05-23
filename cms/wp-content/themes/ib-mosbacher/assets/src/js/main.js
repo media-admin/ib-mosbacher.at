@@ -1,3 +1,4 @@
+import { initImpressumTables } from './components/impressum-tables.js';
 /**
  * Main Entry Point
  * Media Lab Starter Kit – Custom Theme
@@ -188,3 +189,6 @@ function updateHeaderHeight() {
 }
 updateHeaderHeight();
 window.addEventListener('resize', updateHeaderHeight);
+
+
+window.addEventListener('load', initImpressumTables);
