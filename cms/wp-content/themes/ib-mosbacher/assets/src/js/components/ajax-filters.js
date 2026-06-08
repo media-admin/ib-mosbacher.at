@@ -123,10 +123,40 @@ export default class AjaxFilters {
     buttons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        button.classList.toggle('is-active');
         const taxonomy = button.dataset.taxonomy;
         const term = button.dataset.term;
-        this.toggleTaxonomyTerm(container, taxonomy, term);
+
+        // "Alle"-Button (leerer term) → alle Filter dieser Taxonomie zurücksetzen
+        if (!term) {
+          container.querySelectorAll(
+            `.ajax-filters__taxonomy-button[data-taxonomy="${taxonomy}"]`
+          ).forEach(btn => btn.classList.remove('is-active'));
+          button.classList.add('is-active');
+          delete container.activeFilters.taxonomies[taxonomy];
+          container.currentPage = 1;
+          this.loadResults(container);
+          return;
+        }
+
+        const isActive = button.classList.contains('is-active');
+
+        container.querySelectorAll(
+          `.ajax-filters__taxonomy-button[data-taxonomy="${taxonomy}"]`
+        ).forEach(btn => btn.classList.remove('is-active'));
+
+        delete container.activeFilters.taxonomies[taxonomy];
+
+        if (!isActive) {
+          button.classList.add('is-active');
+          container.activeFilters.taxonomies[taxonomy] = [term];
+        } else {
+          // Bei Deaktivierung einer Kategorie → "Alle"-Button wieder aktivieren
+          const allBtn = container.querySelector(
+            `.ajax-filters__taxonomy-button[data-taxonomy="${taxonomy}"][data-term=""]`
+          );
+          if (allBtn) allBtn.classList.add('is-active');
+        }
+
         container.currentPage = 1;
         this.loadResults(container);
       });
