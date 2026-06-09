@@ -7,11 +7,17 @@
 
 get_header();
 
-// Hero = Featured Image des Projekts
-if (has_post_thumbnail()) {
-    set_query_var('hero_args', ['post_id' => get_the_ID()]);
-}
-get_template_part('template-parts/hero-image');
+// Hero = Featured Image des Projekts (direkt, ohne ACF)
+if (has_post_thumbnail()) : ?>
+<section class="hero-image hero-image--md hero-image--align-center hero-image--vpos-bottom container"
+         aria-label="<?php the_title_attribute(); ?>">
+    <?php the_post_thumbnail('full', ['class' => 'hero-image__img', 'loading' => 'eager', 'fetchpriority' => 'high']); ?>
+    <div class="hero-image__overlay" style="--hero-opacity: 0" aria-hidden="true"></div>
+    <div class="hero-image__content container"><div class="hero-image__inner"></div></div>
+</section>
+<?php else :
+    get_template_part('template-parts/hero-image');
+endif;
 ?>
 
 <main id="primary" class="site-main">
