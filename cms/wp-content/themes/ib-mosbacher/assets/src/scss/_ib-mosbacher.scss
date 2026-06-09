@@ -2682,3 +2682,77 @@ body {
         padding-right: var(--space-sm);
     }
 }
+
+
+// ─────────────────────────────────────────────────────────────────
+// LOGO-CARDS – konsolidierter Fix für gleiche Höhe
+// ─────────────────────────────────────────────────────────────────
+
+.ibm-logos-grid {
+    align-items: stretch !important;
+}
+
+.ibm-logo-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    padding: 0 !important;
+
+    &__image {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: var(--space-md) !important;
+        min-height: 120px !important;
+
+        img {
+            max-height: 80px !important;
+            width: auto !important;
+            max-width: 100% !important;
+            object-fit: contain !important;
+        }
+    }
+
+    &__divider--green {
+        display: block !important;
+        height: 2px !important;
+        background: #7AB32E !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    &__divider--blue {
+        display: block !important;
+        height: 2px !important;
+        background: #1976B0 !important;
+        margin-top: 2px !important;
+        margin-bottom: var(--space-sm) !important;
+        flex-shrink: 0 !important;
+    }
+
+    &__name {
+        min-height: calc(7.2 * var(--text-sm)) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0 var(--space-md) !important;
+        font-weight: 800 !important;
+        flex-shrink: 0 !important;
+    }
+
+    &__url {
+        margin-top: auto !important;
+        background: #f0f0f0 !important;
+        padding: var(--space-xs) var(--space-md) !important;
+        display: block !important;
+        text-align: center !important;
+        font-style: italic !important;
+        font-size: var(--text-xs) !important;
+        color: #888 !important;
+        text-decoration: none !important;
+        border-radius: 0 !important;
+        flex-shrink: 0 !important;
+    }
+}
