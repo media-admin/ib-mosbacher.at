@@ -31,7 +31,7 @@ export default defineConfig({
    */
   base: isDev
     ? 'http://localhost:3000/'
-    : '/wp-content/themes/ib-mosbacher/assets/dist/',
+    : 'cms//wp-content/themes/ib-mosbacher/assets/dist/',
 
   plugins: [
     // Triggert Full-Page-Reload bei PHP-Änderungen (relativ zum CWD = Projekt-Root)
