@@ -276,7 +276,7 @@
     &.wpcf7-mail-sent-ok {
         background:   $color-success-light-bg;
         border-color: $color-success;
-        color:        $color-success-dark;
+        color:        $color-text;
         &::before { content: '✓'; }
     }
 
@@ -285,7 +285,7 @@
     &.wpcf7-acceptance-missing {
         background:   $color-error-light-bg;
         border-color: $color-error;
-        color:        $color-error-dark;
+        color:        $color-text;
         &::before { content: '!'; }
     }
 
@@ -294,7 +294,7 @@
     &.wpcf7-aborted {
         background:   $color-error-light-bg;
         border-color: $color-error;
-        color:        $color-error-dark;
+        color:        $color-text;
         &::before { content: '✗'; }
     }
 
@@ -302,7 +302,7 @@
     &.wpcf7-spam-blocked {
         background:   $color-warning-light-bg;
         border-color: $color-warning;
-        color:        $color-warning-darker;
+        color:        $color-text;
         &::before { content: '🛡'; }
     }
 }
