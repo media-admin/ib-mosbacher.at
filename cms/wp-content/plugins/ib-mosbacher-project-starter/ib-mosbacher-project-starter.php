@@ -453,8 +453,8 @@ function ibm_projekte_shortcode( $atts ) {
          data-grid-columns="<?php echo esc_attr( $atts['columns'] ); ?>">
 
         <div class="ajax-filters__sidebar ibm-filter-tabs">
-            <div class="ajax-filters__group" data-taxonomy="projekt_fachgebiet">
-                <button class="ajax-filters__taxonomy-button filter-tab is-active"
+            <div class="ajax-filters__group" data-taxonomy="projekt_fachgebiet" data-filter-mode="radio">
+                <button class="ajax-filters__taxonomy-button ajax-filters__taxonomy-button--all filter-tab is-active"
                         data-taxonomy="projekt_fachgebiet"
                         data-term="">
                     Alle Projekte
