@@ -185,15 +185,28 @@ function medialab_spam_looks_like_gibberish( string $text ): bool {
 
 add_filter( 'wpcf7_spam', function ( bool $spam ): bool {
 	if ( $spam ) {
+		error_log( '[MLA Spam Filter] Bereits als Spam markiert (Honeypot o.ä.), überspringe.' );
 		return true; // Bereits als Spam erkannt (z.B. durch Honeypot).
 	}
 
-	if ( is_wp_error( medialab_spam_rate_limit_check() ) ) {
+	$rate_check = medialab_spam_rate_limit_check();
+	if ( is_wp_error( $rate_check ) ) {
+		error_log( '[MLA Spam Filter] Rate-Limit ausgelöst für IP ' . medialab_spam_get_client_ip() );
 		return true;
 	}
 
-	if ( is_wp_error( medialab_spam_content_heuristic_check() ) ) {
+	$content_check = medialab_spam_content_heuristic_check();
+	if ( is_wp_error( $content_check ) ) {
+		error_log( '[MLA Spam Filter] Content-Heuristik ausgelöst: ' . $content_check->get_error_code() );
 		return true;
+	}
+
+	// TEMPORÄR: Debug-Log um zu sehen, ob/wie die Prüfung überhaupt läuft.
+	$submission = WPCF7_Submission::get_instance();
+	if ( $submission ) {
+		error_log( '[MLA Spam Filter] Kein Spam erkannt. Posted data: ' . wp_json_encode( $submission->get_posted_data() ) );
+	} else {
+		error_log( '[MLA Spam Filter] WARNUNG: WPCF7_Submission::get_instance() ist NULL - Content-Check konnte nicht laufen!' );
 	}
 
 	return false;
