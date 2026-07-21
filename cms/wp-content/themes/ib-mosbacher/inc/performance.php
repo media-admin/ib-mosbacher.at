@@ -187,7 +187,7 @@ add_filter( 'style_loader_tag', 'customtheme_nonblocking_css', 10, 4 );
 
 function customtheme_nonblocking_css( string $tag, string $handle, string $href, string $media ): string {
     // Nur Haupt-CSS, nur wenn Critical CSS existiert
-    if ( $handle !== 'ib-mosbacher-style' ) return $tag;
+    if ( $handle !== 'custom-theme-style' ) return $tag;
     if ( ! file_exists( get_template_directory() . '/assets/dist/css/critical.css' ) ) return $tag;
 
     // Non-blocking pattern: media="print" → onload → media="all"
@@ -372,7 +372,7 @@ function customtheme_defer_scripts( string $tag, string $handle, string $src ): 
         'jquery-core',
         'jquery-migrate',
         'wp-util',
-        'ib-mosbacher-script', // Unser main.js (type="module" → bereits defer)
+        'custom-theme-script', // Unser main.js (type="module" → bereits defer)
     ] );
 
     if ( in_array( $handle, $exclude_handles, true ) ) return $tag;
@@ -411,7 +411,7 @@ function customtheme_ensure_srcset_meta( ?array $image_meta, array $size_array, 
  */
 add_filter( 'wp_get_attachment_image', 'customtheme_webp_picture_element', 10, 5 );
 
-function customtheme_webp_picture_element( string $html, int $attachment_id, string|array $size, bool $icon, array $attr ): string {
+function customtheme_webp_picture_element( string $html, int $attachment_id, string|array $size, bool $icon, $attr = array() ): string {
     if ( ! apply_filters( 'customtheme_enable_picture_webp', false ) ) return $html;
 
     $image_src = wp_get_attachment_image_url( $attachment_id, $size );
