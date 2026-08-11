@@ -2325,35 +2325,35 @@ msgctxt "Pattern title"
 msgid "Banner with book description"
 msgstr "Banner mit Buchbeschreibung"
 
-#: functions.php:142
-msgctxt "Label for the block binding placeholder in the editor"
-msgid "Post format name"
-msgstr "Name des Beitragsformats"
-
-#: functions.php:122
-msgid "A collection of post format patterns."
-msgstr "Eine Sammlung von Beitragsformat-Vorlagen."
-
-#: functions.php:121
-msgid "Post formats"
-msgstr "Beitragsformate"
-
-#: functions.php:114
-msgid "A collection of full page layouts."
-msgstr "Eine Sammlung von ganzseitigen Layouts."
-
-#: functions.php:113
-msgid "Pages"
-msgstr "Seiten"
-
-#: functions.php:84
-msgid "Checkmark"
-msgstr "Häkchen"
-
 #: patterns/banner-about-book.php:26
 msgctxt "Pattern placeholder text."
 msgid "This exquisite compilation showcases a diverse array of photographs that capture the essence of different eras and cultures, reflecting the unique styles and perspectives of each artist. Fleckenstein’s evocative imagery, Strand’s groundbreaking modernist approach, and Kōno’s meticulous documentation of Japanese life come together in a harmonious blend that celebrates the art of photography. Each image in “The Stories Book” is accompanied by insightful commentary, providing historical context and revealing the stories behind the photographs. This collection is not only a visual feast but also a tribute to the power of photography to preserve and narrate the multifaceted experiences of humanity."
 msgstr "Diese exquisite Zusammenstellung zeigt eine Vielzahl von Fotografien, die die Essenz verschiedener Epochen und Kulturen einfangen und die einzigartigen Stile und Perspektiven der einzelnen Künstler widerspiegeln. Fleckensteins stimmungsvolle Bilder, Strands bahnbrechender modernistischer Ansatz und Kōnos akribische Dokumentation des japanischen Lebens fügen sich zu einer harmonischen Mischung zusammen, die die Kunst der Fotografie feiert. Jedes Bild in „The Stories Book“ wird von einem aufschlussreichen Kommentar begleitet, der den historischen Kontext und die Geschichten hinter den Fotografien offenbart. Diese Sammlung ist nicht nur ein visueller Leckerbissen, sondern auch eine Hommage an die Kraft der Fotografie, die vielfältigen Erfahrungen der Menschheit zu bewahren und zu erzählen."
+
+#: functions.php:136
+msgctxt "Label for the block binding placeholder in the editor"
+msgid "Post format name"
+msgstr "Name des Beitragsformats"
+
+#: functions.php:117
+msgid "A collection of post format patterns."
+msgstr "Eine Sammlung von Beitragsformat-Vorlagen."
+
+#: functions.php:116
+msgid "Post formats"
+msgstr "Beitragsformate"
+
+#: functions.php:109
+msgid "A collection of full page layouts."
+msgstr "Eine Sammlung von ganzseitigen Layouts."
+
+#: functions.php:108
+msgid "Pages"
+msgstr "Seiten"
+
+#: functions.php:80
+msgid "Checkmark"
+msgstr "Häkchen"
 
 #: theme.json
 msgctxt "Template part name"

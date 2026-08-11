@@ -255,11 +255,11 @@ msgstr "Liste von Beiträgen ohne Bilder, eine Spalte"
 msgid "I’m <em>Leia Acosta</em>, a passionate photographer who finds inspiration in capturing the fleeting beauty of life."
 msgstr "Ich bin <em>Leia Acosta</em>, eine leidenschaftliche Fotografin, die sich davon inspirieren lässt, die flüchtige Schönheit des Lebens festzuhalten."
 
-#: functions.php:200
+#: functions.php:188
 msgid "A collection of full page layouts."
 msgstr "Eine Sammlung von ganzseitigen Layouts."
 
-#: functions.php:199
+#: functions.php:187
 msgctxt "Block pattern category"
 msgid "Pages"
 msgstr "Seiten"
@@ -920,12 +920,6 @@ msgctxt "Question in the FAQ pattern"
 msgid "I'd like to get to meet fellow architects, how can I do that?"
 msgstr "Ich würde gerne andere Architekten treffen, wie kann ich das tun?"
 
-#: patterns/text-faq.php:27 patterns/text-faq.php:38 patterns/text-faq.php:49
-#: patterns/text-faq.php:60
-msgctxt "Answer in the FAQ pattern"
-msgid "Études offers comprehensive consulting, management, design, and research solutions. Our vision is to be at the forefront of architectural innovation, fostering a global community of architects and enthusiasts united by a passion for creating spaces. Every architectural endeavor is an opportunity to shape the future."
-msgstr "Études bietet umfassende Beratungs-, Management-, Design- und Forschungslösungen an. Unsere Vision ist es, an der Spitze der architektonischen Innovation zu stehen und eine globale Gemeinschaft von Architekten und Enthusiasten zu fördern, die durch ihre Leidenschaft für die Gestaltung von Räumen vereint sind. Jedes architektonische Vorhaben ist eine Chance, die Zukunft zu gestalten."
-
 #: patterns/text-faq.php:24
 msgctxt "Question in the FAQ pattern"
 msgid "What is your process working in smaller projects?"
@@ -949,6 +943,12 @@ msgstr "FAQ"
 #: patterns/text-centered-statement.php:21
 msgid "<em>Études</em> is not confined to the past—we are passionate about the cutting edge designs shaping our world today."
 msgstr "<em>Études</em> ist nicht auf die Vergangenheit beschränkt - wir interessieren uns leidenschaftlich für die modernsten Designs, die unsere Welt heute prägen."
+
+#: patterns/text-faq.php:27 patterns/text-faq.php:38 patterns/text-faq.php:49
+#: patterns/text-faq.php:60
+msgctxt "Answer in the FAQ pattern"
+msgid "Études offers comprehensive consulting, management, design, and research solutions. Our vision is to be at the forefront of architectural innovation, fostering a global community of architects and enthusiasts united by a passion for creating spaces. Every architectural endeavor is an opportunity to shape the future."
+msgstr "Études bietet umfassende Beratungs-, Management-, Design- und Forschungslösungen an. Unsere Vision ist es, an der Spitze der architektonischen Innovation zu stehen und eine globale Gemeinschaft von Architekten und Enthusiasten zu fördern, die durch ihre Leidenschaft für die Gestaltung von Räumen vereint sind. Jedes architektonische Vorhaben ist eine Chance, die Zukunft zu gestalten."
 
 #: patterns/text-centered-statement.php
 msgctxt "Pattern title"
@@ -1740,23 +1740,23 @@ msgctxt "Pattern title"
 msgid "Hero"
 msgstr "Hero"
 
-#: functions.php:111
+#: functions.php:107
 msgid "With asterisk"
 msgstr "Mit Sternchen"
 
-#: functions.php:93
+#: functions.php:89
 msgid "With arrow"
 msgstr "Mit Pfeil"
 
-#: functions.php:74
+#: functions.php:70
 msgid "Checkmark"
 msgstr "Häkchen"
 
-#: functions.php:51
+#: functions.php:47
 msgid "Pill"
 msgstr "Pille"
 
-#: functions.php:28
+#: functions.php:24
 msgid "Arrow icon"
 msgstr "Pfeil-Icon"
 
